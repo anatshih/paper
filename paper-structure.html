@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Paper</title>
+  <style>
+    :root {
+      --navy: #123456;
+      --navy-dark: #0d2740;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dbe3ee;
+      --shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+      --radius: 18px;
+      --success-bg: #e9f8ef;
+      --success-text: #166534;
+      --progress-bg: #fff7e6;
+      --progress-text: #a16207;
+      --planned-bg: #f2ecff;
+      --planned-text: #6d28d9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef3f9 0%, #f8fafc 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 18px 0;
+    }
+
+    .topbar a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 20px 0 28px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      color: white;
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: 0 18px 40px rgba(13, 39, 64, 0.25);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.3;
+    }
+
+    .hero-text {
+      margin-top: 14px;
+      color: rgba(255,255,255,0.88);
+      max-width: 900px;
+    }
+
+    section {
+      padding: 22px 0 34px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      color: var(--navy-dark);
+      font-size: 1.6rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--navy-dark);
+      margin-bottom: 14px;
+    }
+
+    .info-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .paper-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .paper-table th,
+    .paper-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .paper-table th {
+      background: #edf4fb;
+      color: var(--navy-dark);
+      font-size: 0.96rem;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .completed {
+      background: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .progress {
+      background: var(--progress-bg);
+      color: var(--progress-text);
+    }
+
+    .planned {
+      background: var(--planned-bg);
+      color: var(--planned-text);
+    }
+
+    .structure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .section-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-card h3 {
+      margin: 0;
+      color: var(--navy-dark);
+      font-size: 1.08rem;
+    }
+
+    .section-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .highlight-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .highlight-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 6px;
+    }
+
+    .highlight-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--navy-dark);
+      background: white;
+    }
+
+    footer {
+      padding: 26px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .grid-2,
+      .structure-grid,
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-box {
+        padding: 28px;
+      }
+
+      .paper-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="tag">Research Paper</div>
+        <h1>The Research Paper Currently Under Development</h1>
+        <p class="hero-text">
+          This page presents the main written components of the research paper, the completion status of each section, and a concise overview of the academic structure of the study.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Paper Overview</h2>
+      <p class="section-subtitle">
+        The paper investigates the impact of Psychological Capital on Work Engagement among faculty members, with Job Satisfaction examined as a mediating variable.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Main Focus</h3>
+          <p>
+            The study examines a positive organizational behavior framework in higher education by exploring how Psychological Capital contributes to faculty Work Engagement directly and indirectly through Job Satisfaction.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Main Components</h3>
+          <ul class="info-list">
+            <li>Abstract</li>
+            <li>Introduction</li>
+            <li>Literature Review and Hypotheses Development</li>
+            <li>Methodology</li>
+            <li>Results</li>
+            <li>Discussion and Conclusion</li>
+            <li>References and Appendices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Paper Completion Status</h2>
+      <p class="section-subtitle">
+        This table summarizes the current writing status of the major sections of the research paper.
+      </p>
+
+      <table class="paper-table">
+        <thead>
+          <tr>
+            <th>Paper Section</th>
+            <th>Status</th>
+            <th>Summary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Abstract</td>
+            <td><span class="status progress">In Progress</span></td>
+            <td>Planned to be finalized after the completion of the data analysis and final interpretation.</td>
+          </tr>
+          <tr>
+            <td>Introduction</td>
+            <td><span class="status completed">Completed</span></td>
+            <td>Introduces the topic, explains the importance of faculty engagement, and presents Psychological Capital as the key explanatory construct.</td>
+          </tr>
+          <tr>
+            <td>Literature Review and Hypotheses Development</td>
+            <td><span class="status completed">Completed</span></td>
+            <td>Presents the theoretical background, contextual background, and the development of hypotheses H1 to H4.</td>
+          </tr>
+          <tr>
+            <td>Methodology</td>
+            <td><span class="status completed">Completed</span></td>
+            <td>Includes research design, population and sample, instruments, procedure, and ethical considerations.</td>
+          </tr>
+          <tr>
+            <td>Results</td>
+            <td><span class="status progress">In Progress</span></td>
+            <td>Currently includes partial descriptive analysis, while the remaining statistical analysis is being completed.</td>
+          </tr>
+          <tr>
+            <td>Discussion and Conclusion</td>
+            <td><span class="status planned">Planned</span></td>
+            <td>This section will be developed after completing all statistical analyses and interpreting the findings.</td>
+          </tr>
+          <tr>
+            <td>References</td>
+            <td><span class="status progress">In Progress</span></td>
+            <td>A structured reference list has already been included in the paper draft.</td>
+          </tr>
+          <tr>
+            <td>Appendices</td>
+            <td><span class="status progress">In Progress</span></td>
+            <td>The questionnaire and measurement details are already documented in the appendix section.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Section-by-Section Summary</h2>
+      <p class="section-subtitle">
+        The following cards provide a concise description of the content currently included in each part of the paper.
+      </p>
+
+      <div class="structure-grid">
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Abstract</h3>
+            <span class="status progress">In Progress</span>
+          </div>
+          <p>
+            The abstract is reserved for the final stage and will summarize the purpose, variables, methodology, and key findings of the study.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Introduction</h3>
+            <span class="status completed">Completed</span>
+          </div>
+          <p>
+            The introduction establishes the academic significance of Work Engagement in higher education and introduces Psychological Capital as a positive, developable psychological resource.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Literature Review</h3>
+            <span class="status completed">Completed</span>
+          </div>
+          <p>
+            The literature review addresses Psychological Capital, contextual background, Work Engagement, Job Satisfaction, and the mediating role of Job Satisfaction.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Hypotheses Development</h3>
+            <span class="status completed">Completed</span>
+          </div>
+          <p>
+            Four hypotheses are presented to test the direct and indirect relationships among Psychological Capital, Job Satisfaction, and Work Engagement.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Methodology</h3>
+            <span class="status completed">Completed</span>
+          </div>
+          <p>
+            The methodology section explains the quantitative cross-sectional design, SPSS-based analysis plan, measurement instruments, sampling, and data collection procedures.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Results</h3>
+            <span class="status progress">In Progress</span>
+          </div>
+          <p>
+            The results section is currently under development and includes partial descriptive output, with additional inferential analyses to be integrated.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>Discussion and Conclusion</h3>
+            <span class="status planned">Planned</span>
+          </div>
+          <p>
+            This section will later interpret the findings, connect them to previous studies, present implications, and conclude the study.
+          </p>
+        </div>
+
+        <div class="section-card">
+          <div class="section-head">
+            <h3>References and Appendices</h3>
+            <span class="status progress">In Progress</span>
+          </div>
+          <p>
+            The current draft already includes the reference list and the appendix containing the questionnaire instruments used in the study.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Paper Highlights</h2>
+      <p class="section-subtitle">
+        Key academic elements already established in the current paper draft.
+      </p>
+
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-number">4</div>
+          <div class="highlight-label">Research Hypotheses</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-number">3</div>
+          <div class="highlight-label">Main Study Variables</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-number">3</div>
+          <div class="highlight-label">Validated Instruments</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-number">SPSS 28</div>
+          <div class="highlight-label">Planned Analysis Software</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Full Research Document (Exact Copy)</h2>
+      <p class="section-subtitle">The content below is displayed in full, without omission, based on the uploaded Word file.</p>
+
+      <div class="card" style="font-family:'Times New Roman', serif; line-height:1.95; font-size:1.05rem; color:#111827;">
+        <div style="max-width:860px; margin:0 auto;">
+          <h3 style="text-align:center; margin-bottom:28px; font-size:1.5rem; line-height:1.5;">
+            The Impact of Psychological Capital on Work Engagement among Faculty Members at Al-Quds Open University: The Mediating Role of Job Satisfaction
+          </h3>
+
+          <h4>Abstract</h4>
+          <p>[To be written after data analysis is complete][1]</p>
+
+          <h4>Introduction</h4>
+          <p>Higher education institutions fundamentally depend on the sustained engagement of academic staff to fulfill essential teaching, research, and administrative roles that underpin organizational performance and continuity (Mojado, 2025). Faculty members and academic service personnel, as key contributors to these functions, necessitate a deep understanding of motivational factors to ensure institutional effectiveness and quality assurance (Mojado, 2025). Moreover, recent organizational research emphasizes the strategic cultivation of positive psychological resources, which can enhance employee performance and well-being in dynamic work environments (Luthans et al., 2007). Accordingly, this study examines Psychological Capital (PsyCap) as a developable personal resource and its influence on work engagement among faculty, positing job satisfaction as a critical mediator in this pathway (Avey et al., 2011).</p>
+          <p>PsyCap represents an individual's positive psychological state of development, characterized by the synergistic integration of hope, optimism, resilience, and self-efficacy (Luthans et al., 2007). Self-efficacy involves confidence in exerting effort toward challenging tasks, optimism entails positive attributions of success over time, hope reflects goal-directed energy with flexible pathways, and resilience denotes the capacity to rebound and grow from adversity (Youssef-Morgan & Luthans, 2015). Rooted in Positive Organizational Behavior (POB), PsyCap focuses on measurable, state-like capacities that organizations can develop to drive performance improvements, distinguishing it from fixed traits through its malleability (Luthans et al., 2007). Empirical meta-analyses confirm PsyCap's strong positive associations with job satisfaction, organizational commitment, citizenship behaviors, and performance, while revealing inverse relationships with turnover intentions, cynicism, stress, and deviance (Avey et al., 2011). Furthermore, utility analyses across diverse samples demonstrate PsyCap's practical value in amplifying positive outcomes and reducing negative ones, with the Psychological Capital Questionnaire (PCQ-24) providing a reliable, stable measure of this construct (Avey et al., 2011; Luthans et al., 2007). These findings suggest PsyCap's potential to foster adaptive responses in demanding academic settings.</p>
+          <p>In parallel, work engagement has gained prominence as a multifaceted indicator of positive occupational functioning, defined as a positive, fulfilling, work-related state encompassing vigor, dedication, and absorption (Bakker & Demerouti, 2008). Vigor manifests as high energy levels, mental resilience, and persistent effort despite challenges; dedication involves a sense of significance, inspiration, pride, and challenge; and absorption refers to profound immersion in tasks where time perception shifts (Schaufeli et al., 2006). The Utrecht Work Engagement Scale (UWES) operationalizes this model, exhibiting robust psychometric properties and cross-cultural validity (Schaufeli et al., 2006). Synthesizing evidence from meta-analyses, work engagement positively correlates with in-role and extra-role performance, morale, and organizational outcomes, particularly task performance, while aligning closely with attitudinal factors such as job satisfaction and commitment (Christian et al., 2011). However, in higher education contexts, where faculty centrality amplifies the need for sustained motivation, engagement is influenced by leadership and organizational climate, underscoring its relevance for institutional resilience (Mojado, 2025). This study thus integrates PsyCap's resource-building properties with engagement dynamics, particularly in resource-constrained environments like Al-Quds Open University (QOU).</p>
+
+          <h4>Literature Review and Hypotheses Development</h4>
+          <h5>Psychological Capital</h5>
+          <p>Psychological Capital (PsyCap) serves as a higher-order personal resource that amalgamates hope, optimism, resilience, and self-efficacy to promote proactive adaptation and performance in organizational settings (Luthans et al., 2007; Youssef-Morgan & Luthans, 2015). Unlike traditional forms of capital such as human or social resources, PsyCap emphasizes an individual's current positive states and developmental potential, facilitating goal attainment and recovery from setbacks through enhanced self-regulation (Avey et al., 2011). Grounded in Positive Organizational Behavior (POB), PsyCap prioritizes capacities that are state-like—more stable than transient emotions but modifiable through interventions—yielding synergistic effects that exceed the sum of its components, as confirmed by structural analyses validating its integrated structure (Luthans et al., 2007; Youssef-Morgan & Luthans, 2015). This malleability enables organizations to invest in training programs that cultivate PsyCap, contrasting with trait-based approaches by offering actionable pathways to attitudinal and behavioral improvements (Avey et al., 2011).</p>
+          <p>The PCQ-24 reliably assesses PsyCap across individual and team levels, demonstrating strong internal consistency and test-retest reliability (Luthans et al., 2007). Meta-analytic syntheses reveal PsyCap's consistent positive links to job satisfaction and work engagement, alongside performance and citizenship behaviors, while mitigating negative outcomes like stress and turnover (Avey et al., 2011; Newman et al., 2014). In contrast to isolated component studies, integrated models highlight PsyCap's superior predictive power, suggesting its utility in high-demand contexts where resources buffer demands (Newman et al., 2014). These patterns imply PsyCap's applicability to faculty roles, where psychological strengths can sustain motivation and satisfaction amid challenges, directly informing the current examination of its effects on engagement via satisfaction.</p>
+
+          <h5>Contextual Background</h5>
+          <p>Palestinian higher education grapples with systemic adversities stemming from occupation-related constraints, including mobility restrictions, infrastructural damage, and chronic underfunding that covers less than 10% of institutional needs, thereby intensifying demands on faculty and disrupting academic continuity (Diab, 2025). Such conditions exacerbate psychological strains, contrasting with more resourced global systems and highlighting the need for personal resources to foster resilience (Diab, 2025). Al-Quds Open University (QOU), as a leader in distance and blended learning, navigates these barriers through innovative modalities, yet encounters additional hurdles like technological deficits, import limitations, and motivational gaps in e-learning adoption (Ghanem & Hamayil, 2011). Faculty training initiatives underscore the role of psychological capacities in pedagogical adaptation, with incentives recommended to enhance engagement and satisfaction (Ghanem & Hamayil, 2011).</p>
+          <p>QOU's expansive branch network across volatile areas, including Gaza and Hebron, demands comprehensive faculty perspectives to address institution-wide dynamics, where distance education ensures operational continuity but amplifies evaluative pressures on well-being (Diab, 2025). This context extends general engagement models to underrepresented settings, leveraging PsyCap's developability to explain satisfaction-mediated outcomes (Bailey et al., 2017; Youssef-Morgan & Luthans, 2015). By synthesizing resource theories, the study advances theoretical insights into motivational pathways while offering practical implications for faculty support in constrained environments (Avey et al., 2011; Diab, 2025).</p>
+
+          <h5>PsyCap and Work Engagement</h5>
+          <p>The Job Demands-Resources (JD-R) model positions personal resources like PsyCap as pivotal antecedents to work engagement, particularly in demanding contexts, by aligning its components—efficacy, hope, optimism, and resilience—with vigor, dedication, and absorption to sustain motivational investment (Bakker & Demerouti, 2008; Hakanen & Kaltiainen, 2026). Meta-analyses and longitudinal studies affirm PsyCap's direct positive associations with engagement, where higher levels predict sustained well-being and performance gains, contrasting cross-sectional designs by revealing temporal precedence (Alessandri et al., 2018; Mazzetti et al., 2022). For instance, dynamic models demonstrate that PsyCap growth forecasts engagement elevations that mediate performance improvements, highlighting resource-motivational cascades over static correlations (Alessandri et al., 2018).</p>
+          <p>These synthesized findings suggest PsyCap equips individuals to channel personal strengths into engaged states, especially for QOU faculty facing e-learning rigors, thereby justifying its anticipated positive impact on engagement.</p>
+          <p>Based on the above theoretical and empirical evidence, the following hypothesis is proposed:</p>
+          <p><strong>H1: Psychological capital has a significant positive impact on work engagement among faculty members at Al-Quds Open University.</strong> (Alessandri et al., 2018; Mazzetti et al., 2022)</p>
+
+          <h5>PsyCap and Job Satisfaction</h5>
+          <p>Job satisfaction, a core attitudinal construct in organizational behavior, integrates psychological resources into evaluative frameworks, with PsyCap theory proposing that optimism and self-efficacy generate positive expectancies that enhance overall job fulfillment (Sahoo et al., 2015; Judge et al., 2001). Meta-analytic evidence confirms robust PsyCap-satisfaction linkages, while comparative syntheses across samples reveal consistent positive effects on attitudes, outperforming isolated predictors by encompassing broader developmental dynamics (Avey et al., 2011; Rode et al., 2015). Regression-based studies further validate PsyCap's direct influence, extending beyond correlations to predictive validity in diverse occupational groups (Rode et al., 2015).</p>
+          <p>In QOU's challenging milieu, where external constraints may undermine satisfaction, PsyCap's role as a buffer implies its capacity to elevate faculty evaluations, supporting its expected positive effect.</p>
+          <p><strong>H2: Psychological capital has a significant positive impact on job satisfaction among faculty members at Al-Quds Open University.</strong> (Rode et al., 2015; Sahoo et al., 2015)</p>
+
+          <h5>Job Satisfaction and Work Engagement</h5>
+          <p>Job satisfaction and work engagement exhibit strong attitudinal convergence, sharing affective foundations that propel motivational processes and performance (Judge et al., 2001; Christian et al., 2011). Narrative syntheses and meta-analyses highlight their positive interrelations, with satisfaction serving as a precursor that amplifies engagement's vigor and dedication components, though bidirectional influences suggest nuanced dynamics in longitudinal contexts (Bailey et al., 2017; Harter et al., 2002). Empirical regressions affirm satisfaction's direct positive impact on engagement, distinguishing it from mere overlap by evidencing incremental variance in outcomes like productivity (Harter et al., 2002).</p>
+          <p>For QOU faculty, satisfaction may translate positive job perceptions into heightened engagement amid institutional demands, thus positing a direct facilitative role.</p>
+          <p><strong>H3: Job satisfaction has a significant positive impact on work engagement among faculty members at Al-Quds Open University.</strong> (Bailey et al., 2017; Harter et al., 2002)</p>
+
+          <h5>Mediating Role of Job Satisfaction</h5>
+          <p>Resource-oriented theories such as JD-R and Conservation of Resources (COR) explain how PsyCap influences engagement through attitudinal mediators like job satisfaction, where personal gains counteract demands to sustain motivational equilibrium (Bakker & Demerouti, 2008; Hobfoll et al., 2018). COR emphasizes satisfaction's amplifying effect amid resource losses, while JD-R frames it as a pathway converting resources into engagement benefits, with meta-analyses confirming partial mediation across studies (Mazzetti et al., 2022; Xanthopoulou et al., 2009). Recent empirical tests using bootstrapping reveal satisfaction's indirect role in the PsyCap-engagement link, though variations in high-demand settings suggest contextual moderation (Hayes, 2018; Rudolph et al., 2017).</p>
+          <p>In Palestinian higher education's adverse conditions, satisfaction likely strengthens PsyCap's transmission to engagement at QOU, clarifying mechanisms for targeted interventions.</p>
+          <p><strong>H4: Job satisfaction mediates the relationship between psychological capital and work engagement among faculty members at Al-Quds Open University.</strong> (Hayes, 2018; Rudolph et al., 2017)</p>
+
+          <h4>Methodology</h4>
+          <h5>Research Design</h5>
+          <p>This study employs a quantitative, cross-sectional survey design to investigate the direct and indirect effects of Psychological Capital (PsyCap) on work engagement, mediated by job satisfaction, among faculty at Al-Quds Open University (Wolf et al., 2013). Such designs are well-suited for descriptive social science inquiries, enabling the collection of data from a sample at a single time point to estimate relationships and mediation within a cohesive framework, extending beyond simple associations to inferential modeling (Wolf et al., 2013). However, cross-sectional approaches limit causal directionality, warranting longitudinal extensions for future validation (Fong & Ng, 2012).</p>
+          <p>Data analysis will utilize SPSS (version 28), incorporating descriptive statistics for sample profiling, reliability assessment via Cronbach's alpha, validity evaluation through exploratory factor analysis (EFA) with Kaiser-Meyer-Olkin (KMO) measure and Bartlett's test of sphericity, Pearson correlations for bivariate relations, multiple regression to test direct effects (H1–H3), and the PROCESS macro (Model 4) for mediation analysis of indirect effects (H4) (Hayes, 2018). This regression-based approach accommodates latent constructs measured by multiple items, accounting for measurement error in psychological variables (Wolf et al., 2013). Prior to primary analyses, assumptions will be verified: normality via Shapiro-Wilk tests and Q-Q plots, linearity through scatterplots and residual analyses, and multicollinearity using variance inflation factors (VIF &lt; 5) and tolerance values (&gt; 0.10) (Tabachnick &amp; Fidell, 2019). These steps ensure robust inference in the mediation framework, suitable for the study's scope in educational contexts (Hayes, 2018).</p>
+
+          <h5>Population and Sample</h5>
+          <p>The target population comprises all full-time faculty members at Al-Quds Open University, aligning with behavioral surveys in higher education that focus on academic staff to capture motivational dynamics (Mojado, 2025; Wolf et al., 2013). Sampling procedures integrate rigorous selection with instrument validation to optimize representativeness and quality (Kelley et al., 2003). Stratified random sampling will be applied to ensure proportional inclusion of subgroups, such as branches and ranks, mitigating bias in non-probability alternatives (Kelley et al., 2003). If logistical constraints arise, a census via institutional email may supplement recruitment (Lindberg et al., 2024).</p>
+          <p>Sample size determination prioritizes statistical power for mediation, targeting 200–250 responses to achieve ≥ 80% power for detecting medium effects with three predictors, surpassing heuristic rules like the 10-times guideline while avoiding underpowering (Wolf et al., 2013; Soper, 2023). Power calculations via G*Power or similar tools will confirm adequacy for regression and bootstrapping (Faul et al., 2007).</p>
+
+          <h5>Research Instruments</h5>
+          <p>A self-administered questionnaire will deploy validated multi-item scales to measure PsyCap, job satisfaction, and work engagement, adhering to standards for psychometric rigor in survey research (Kelley et al., 2003). Latent constructs are operationalized with multiple indicators to minimize error and enhance reliability (Wolf et al., 2013).</p>
+          <table class="paper-table" style="margin:18px 0 26px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead>
+              <tr>
+                <th>Construct</th>
+                <th>Measure</th>
+                <th>Psychometric Evidence</th>
+                <th>Planned Assessments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Psychological Capital</td>
+                <td>PCQ-24 (Luthans et al., 2007)</td>
+                <td>Four subscales with CFA supporting higher-order structure; α &gt; .70; test-retest r &gt; .60 (Avey et al., 2011).</td>
+                <td>Cronbach's α (&gt; .70); EFA (KMO &gt; .60, Bartlett p &lt; .001); factor loadings &gt; .50 (Tabachnick &amp; Fidell, 2019).</td>
+              </tr>
+              <tr>
+                <td>Work Engagement</td>
+                <td>UWES-9 (Schaufeli et al., 2006)</td>
+                <td>Three subscales; CFA validity; α &gt; .80; superior to full version in brevity (Schaufeli et al., 2006).</td>
+                <td>Cronbach's α; EFA for dimensionality; correlations with criteria (Fong &amp; Ng, 2012).</td>
+              </tr>
+              <tr>
+                <td>Job Satisfaction</td>
+                <td>MSQ Short Form (Weiss et al., 1967)</td>
+                <td>20 items; established validity in occupational samples; α &gt; .75 (Judge et al., 2001).</td>
+                <td>Cronbach's α; EFA; inter-item correlations (Tabachnick &amp; Fidell, 2019).</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Instruments will be adapted to Arabic through forward-backward translation and expert review to ensure equivalence (Vonkeman et al., 2022). A pilot test with 30–50 faculty will refine clarity, timing, and preliminary reliability (Kelley et al., 2003).</p>
+
+          <h5>Data Collection Procedure</h5>
+          <p>The online questionnaire will be distributed via university email and learning platforms, targeting the population or sample with follow-up reminders to maximize response rates (Dillman et al., 2014). Data collection will span 4–6 weeks to preserve cross-sectional integrity while accommodating academic schedules (Kelley et al., 2003). Participation is voluntary, commencing with informed consent outlining study purpose, anonymity, confidentiality, and withdrawal rights (American Psychological Association, 2017).</p>
+
+          <h5>Ethical Considerations</h5>
+          <p>Ethical protocols prioritize participant autonomy, obtaining explicit consent and ensuring data security through anonymized coding and secure storage (American Psychological Association, 2017). Institutional review board approval will be sought, with debriefing provided post-participation to address any concerns (Wolf et al., 2013).</p>
+
+          <h4>Results</h4>
+          <p>[Partial descriptive analysis from available data.]</p>
+
+          <h4>Discussion and Conclusion</h4>
+          <p>[To be developed post-analysis.]</p>
+
+          <h4>References</h4>
+          <div style="white-space:pre-wrap; font-size:1rem; line-height:1.95;">
+Alessandri, G., Consiglio, C., Luthans, F., & Borgogni, L. (2018). Testing a dynamic model of the impact of psychological capital on work engagement and job performance. Career Development International, 23(1), 5–23. https://doi.org/10.1108/CDI-11-2016-0210
+American Psychological Association. (2017). Ethical principles of psychologists and code of conduct. https://www.apa.org/ethics/code
+Avey, J. B., Reichard, R. J., Luthans, F., & Mhatre, K. H. (2011). Meta-analysis of the impact of positive psychological capital on employee attitudes, behaviors, and performance. Human Resource Development Quarterly, 22(2), 127–152. https://doi.org/10.1002/hrdq.20070
+Bailey, C., Madden, A., Alfes, K., & Fletcher, L. (2017). The meaning, antecedents and outcomes of employee engagement: A narrative synthesis. International Journal of Management Reviews, 19(1), 31–53. https://doi.org/10.1111/ijmr.12077
+Bakker, A. B., & Demerouti, E. (2008). Towards a model of work engagement. Career Development International, 13(3), 209–223. https://doi.org/10.1108/13620430810870476
+Christian, M. S., Garza, A. S., & Slaughter, J. E. (2011). Work engagement: A quantitative review and test of its relations with task and contextual performance. Personnel Psychology, 64(1), 89–136. https://doi.org/10.1111/j.1744-6570.2010.01203.x
+Diab, A. (2025). Transforming adversity into strategic success: Management approaches in Palestinian higher education. Administrative Sciences, 15(11), 425. https://doi.org/10.3390/admsci15110425
+Dillman, D. A., Smyth, J. D., & Christian, L. M. (2014). Internet, phone, mail, and mixed-mode surveys: The tailored design method (4th ed.). Wiley.
+Faul, F., Erdfelder, E., Lang, A.-G., & Buchner, A. (2007). G*Power 3: A flexible statistical power analysis program for the social, behavioral, and biomedical sciences. Behavior Research Methods, 39(2), 175–191. https://doi.org/10.3758/BF03193146
+Fong, T. C. T., & Ng, S. M. (2012). Measuring engagement at work: Validation of the Chinese version of the Utrecht Work Engagement Scale. International Journal of Behavioral Medicine, 19(2), 391–401. https://doi.org/10.1007/s12529-011-9173-6
+Ghanem, F., & Hamayil, M. (2011). Management role of Al-Quds Open University in leading effective distance learning programs: An evaluation of QOU experience in blended learning. Contemporary Educational Technology, 2(4), 303–316.
+Hakanen, J. J., & Kaltiainen, J. (2026). Work engagement: Feeling happy, motivated, and resilient at work. Annual Review of Organizational Psychology and Organizational Behavior, 13, 1–25. https://doi.org/10.1146/annurev-orgpsych-020924-064233
+Harter, J. K., Schmidt, F. L., & Hayes, T. L. (2002). Business-unit-level relationship between employee satisfaction, employee engagement, and business outcomes: A meta-analysis. Journal of Applied Psychology, 87(2), 268–279. https://doi.org/10.1037/0021-9010.87.2.268
+Hayes, A. F. (2018). Introduction to mediation, moderation, and conditional process analysis: A regression-based approach (2nd ed.). Guilford Press.
+Hobfoll, S. E., Halbesleben, J., Neveu, J.-P., & Westman, M. (2018). Conservation of resources in the organizational context: The reality of resources and their consequences. Annual Review of Organizational Psychology and Organizational Behavior, 5, 103–128. https://doi.org/10.1146/annurev-orgpsych-032117-104640
+Judge, T. A., Thoresen, C. J., Bono, J. E., & Patton, G. K. (2001). The job satisfaction–job performance relationship: A qualitative and quantitative review. Psychological Bulletin, 127(3), 376–407. https://doi.org/10.1037/0033-2909.127.3.376
+Kelley, K., Clark, B., Brown, V., & Sitzia, J. (2003). Good practice in the conduct and reporting of survey research. International Journal of Nursing Studies, 40(2), 107–111. https://doi.org/10.1016/S0020-7489(02)00085-0
+Lindberg, M., Knudsen, K., & Lindberg, M. (2024). Factor structure of the Utrecht Work Engagement Scale in a sample of Danish and Swedish haemodialysis nurses. BMC Nursing, 23, Article 45. https://doi.org/10.1186/s12912-024-01567-4
+Luthans, F., Youssef, C. M., & Avolio, B. J. (2007). Psychological capital: Developing the human competitive edge. Oxford University Press.
+Mazzetti, G., Schaufeli, W. B., & Guglielmi, D. (2022). Are engaged employees better able to flourish at work? A meta-analytic investigation of the reciprocal relationship between job engagement and work flourishing. European Journal of Work and Organizational Psychology, 31(5), 745–760. https://doi.org/10.1080/1359432X.2022.2099540
+Mojado, E. G. R. (2025). Organizational empowerment and work engagement among full-time faculty and academic service personnel in selected higher educational institutions. International Journal of Research Studies in Management, 14(1), 1–15. https://doi.org/10.5861/ijrsm.2025.25084
+Newman, D. B., Obschonka, M., Schwarz, G., Cohen, M., & Nielsen, I. (2014). Psychological capital: A review and agenda for future research. Australian Journal of Management, 39(1), 73–94. https://doi.org/10.1177/0312896213514060
+Rode, J. C., Huang, X., & Flynn, C. B. (2015). A longitudinal investigation of the relationship between psychological capital and satisfaction with life. Journal of Happiness Studies, 16(4), 919–936. https://doi.org/10.1007/s10902-014-9533-5
+Rudolph, C. W., Katz, I. M., Lavigne, K. N., & Zacher, H. (2017). Job crafting: A meta-analysis of relationships with individual differences, job characteristics, and work outcomes. Journal of Vocational Behavior, 102, 112–138. https://doi.org/10.1016/j.jvb.2017.05.008
+Sahoo, B. C., Sia, S. K., Sahu, N., & Appu, A. V. (2015). Psychological capital and work attitudes: A conceptual analysis. Journal of Organization & Human Behaviour, 4(2/3), 8–16. https://doi.org/10.21863/asbm-ejor.2015.3.2.5
+Schaufeli, W. B., Bakker, A. B., & Salanova, M. (2006). The measurement of work engagement with a short questionnaire: A cross-national study. Educational and Psychological Measurement, 66(4), 701–716. https://doi.org/10.1177/0013164405282471
+Soper, D. S. (2023). A-priori sample size calculator for multiple regression [Software]. https://www.danielsoper.com/statcalc
+Tabachnick, B. G., & Fidell, L. S. (2019). Using multivariate statistics (7th ed.). Pearson.
+Vonkeman, I., van der Klink, M., & van Hooff, M. (2022). Cross-cultural adaptation of psychological instruments: A systematic review. International Journal of Selection and Assessment, 30(3-4), 1–15. https://doi.org/10.1111/ijsa.12400
+Weiss, D. J., Dawis, R. V., England, G. W., & Lofquist, L. H. (1967). Manual for the Minnesota Satisfaction Questionnaire. Minnesota Studies in Vocational Rehabilitation, 22, 1–120.
+Wolf, E. J., Harrington, K. M., Clark, S. L., & Miller, M. W. (2013). Sample size requirements for structural equation models: An evaluation of power, bias, and solution propriety. Educational and Psychological Measurement, 73(6), 913–934. https://doi.org/10.1177/0013164413495237
+Xanthopoulou, D., Bakker, A. B., Demerouti, E., & Schaufeli, W. B. (2009). Reciprocal relationships between job resources, personal resources, and work engagement. Journal of Vocational Behavior, 74(3), 235–244. https://doi.org/10.1016/j.jvb.2008.11.003
+Youssef-Morgan, C. M., & Luthans, F. (2015). Psychological capital and well-being: Implications for developing human resources. Human Resource Development Quarterly, 26(1), 81–91. https://doi.org/10.1002/hrdq.21198
+          </div>
+
+          <h4>Appendices</h4>
+          <h5>Appendix A: Survey Questionnaire (English Version)</h5>
+          <p>This survey is for the study “The Impact of Psychological Capital on Work Engagement among Faculty Members at Al-Quds Open University: The Mediating Role of Job Satisfaction.” It incorporates the PCQ-24 (subscales: hope, optimism, self-efficacy, resilience), UWES-9 (validated via CFA, with strong consistency and reliability), and MSQ short form (Weiss et al., 1967).</p>
+          <p>Responses are anonymous and confidential; completion signifies consent. Estimated time: 10–15 minutes.</p>
+
+          <h5>Section A: Demographic Information</h5>
+          <p>Please select the best description.</p>
+          <table class="paper-table" style="margin:18px 0 26px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Question</th>
+                <th>Response options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>A1</td><td>Gender</td><td>Male / Female</td></tr>
+              <tr><td>A2</td><td>Age</td><td>Under 30 / 30–39 / 40–49 / 50–59 / 60 and above</td></tr>
+              <tr><td>A3</td><td>Academic rank</td><td>Lecturer / Assistant Professor / Associate Professor / Full Professor</td></tr>
+              <tr><td>A4</td><td>Years of experience at QOU</td><td>Less than 5 / 5–10 / 11–15 / 16–20 / More than 20</td></tr>
+              <tr><td>A5</td><td>Branch location</td><td>Ramallah / Nablus / Hebron / Tulkarm / Jenin / Bethlehem / Jericho / Qalqilya / Salfit / Tubas / Gaza / Khan Yunis / Rafah / North Gaza / Deir al-Balah</td></tr>
+            </tbody>
+          </table>
+
+          <h5>Section B: Psychological Capital Questionnaire (PCQ-24)</h5>
+          <p>Instructions: Indicate agreement with statements about work thoughts/feelings. Scale (6-point Likert): 1 = Strongly Disagree ... 6 = Strongly Agree.</p>
+          <p>Note: (R) = Reverse-scored.</p>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Self-Efficacy</h6>
+          <table class="paper-table" style="margin:10px 0 22px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>I feel confident analyzing a long-term problem to find a solution.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>2</td><td>I feel confident in representing my work area in meetings with management.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>3</td><td>I feel confident contributing to discussions about the university’s strategy.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>4</td><td>I feel confident helping to set targets/goals in my work area.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>5</td><td>I feel confident contacting people outside the university to discuss problems.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>6</td><td>I feel confident presenting information to a group of colleagues.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Hope</h6>
+          <table class="paper-table" style="margin:10px 0 22px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>7</td><td>If I should find myself in a jam at work, I could think of many ways to get out of it.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>8</td><td>At the present time, I am energetically pursuing my work goals.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>9</td><td>There are lots of ways around any problem.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>10</td><td>Right now I see myself as being pretty successful at work.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>11</td><td>I can think of many ways to reach my current work goals.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>12</td><td>At this time, I am meeting the work goals that I have set for myself.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Resilience</h6>
+          <table class="paper-table" style="margin:10px 0 22px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>13</td><td>When I have a setback at work, I have trouble recovering from it, moving on. (R)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>14</td><td>I usually manage difficulties one way or another at work.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>15</td><td>I can be “on my own,” so to speak, at work if I have to.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>16</td><td>I usually take stressful things at work in stride.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>17</td><td>I can get through difficult times at work because I’ve experienced difficulty before.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>18</td><td>I feel I can handle many things at a time at this job.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Optimism</h6>
+          <table class="paper-table" style="margin:10px 0 26px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>19</td><td>When things are uncertain for me at work, I usually expect the best.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>20</td><td>If something can go wrong for me work-wise, it will. (R)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>21</td><td>I always look on the bright side of things regarding my job.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>22</td><td>I’m optimistic about what will happen to me in the future as it pertains to work.</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>23</td><td>In this job, things never work out the way I want them to. (R)</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>24</td><td>I approach this job as if “every cloud has a silver lining.”</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h5>Section C: Utrecht Work Engagement Scale (UWES-9)</h5>
+          <p>Instructions: Indicate how often you feel this way at work. Scale (7-point frequency): 0 = Never ... 6 = Always.</p>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Vigor</h6>
+          <table class="paper-table" style="margin:10px 0 22px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>At my work, I feel bursting with energy.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>2</td><td>At my job, I feel strong and vigorous.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>3</td><td>When I get up in the morning, I feel like going to work.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Dedication</h6>
+          <table class="paper-table" style="margin:10px 0 22px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>4</td><td>I am enthusiastic about my job.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>5</td><td>My job inspires me.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>6</td><td>I am proud of the work that I do.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h6 style="font-size:1rem; margin-bottom:10px;">Absorption</h6>
+          <table class="paper-table" style="margin:10px 0 26px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+            <tbody>
+              <tr><td>7</td><td>I feel happy when I am working intensely.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>8</td><td>I am immersed in my work.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>9</td><td>I get carried away when I am working.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <h5>Section D: Minnesota Satisfaction Questionnaire (MSQ) Short Form</h5>
+          <p>Instructions: On my present job, this is how I feel about… Scale (5-point Likert): 1 = Very Dissatisfied ... 5 = Very Satisfied.</p>
+          <table class="paper-table" style="margin:10px 0 22px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Being able to keep busy all the time.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>2</td><td>The chance to work alone on the job.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>3</td><td>The chance to do different things from time to time.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>4</td><td>The chance to be “somebody” in the community.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>5</td><td>The way my boss handles his/her workers.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>6</td><td>The competence of my supervisor in making decisions.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>7</td><td>Being able to do things that don’t go against my conscience.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>8</td><td>The way my job provides for steady employment.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>9</td><td>The chance to do things for other people.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>10</td><td>The chance to tell people what to do.</td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+
+          <table class="paper-table" style="margin:10px 0 10px; box-shadow:none; border:1px solid var(--border); border-radius:0;">
+            <thead><tr><th>No.</th><th>Item</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+            <tbody>
+              <tr><td>11</td><td>The chance to do something that makes use of my abilities.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>12</td><td>The way university policies are put into practice.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>13</td><td>My pay and the amount of work I do.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>14</td><td>The chances for advancement on this job.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>15</td><td>The freedom to use my own judgment.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>16</td><td>The chance to try my own methods of doing the job.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>17</td><td>The working conditions.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>18</td><td>The way my co-workers get along with each other.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>19</td><td>The praise I get for doing a good job.</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>20</td><td>The feeling of accomplishment I get from the job.</td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="card">
+        <h3>Next Step</h3>
+        <p>
+          The next development step in the paper is the completion of the Results section through the integration of descriptive, reliability, validity, correlation, regression, and mediation analyses.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="progress-overview.html">Go to Research Stages</a>
+          <a class="btn btn-secondary" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Research Paper Page – Academic Research Project
+    </div>
+  </footer>
+</body>
+</html>

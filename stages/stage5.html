@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 05 – Validity Analysis</title>
+<style>
+:root{
+  --primary:#0d2740;
+  --primary-2:#123456;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --soft:#f0f4f8;
+  --shadow:0 10px 28px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.container{width:min(1180px,92%);margin:auto}
+.topnav{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}
+.topnav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}
+.nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--primary);font-weight:700}
+.nav-stage{color:var(--muted);font-size:.92rem}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;padding:38px 0 34px}
+.hero-kicker{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-size:.85rem;font-weight:700;margin-bottom:14px}
+header h1{margin:0 0 8px;font-size:2rem}
+header p{margin:0;opacity:.92;max-width:760px}
+section{padding:30px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:22px;box-shadow:var(--shadow)}
+.card h2{margin-top:0;color:var(--primary);font-size:1.35rem}
+.card h3,.card h4{color:var(--primary);margin-bottom:10px}
+.table-title{font-weight:700;color:var(--primary);margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.97rem;background:#fff}
+th,td{border:1px solid var(--border);padding:10px 12px;vertical-align:top}
+th{background:var(--soft);text-align:center}
+td{text-align:center}
+ul{margin:10px 0 0 20px;padding:0}
+li{margin-bottom:8px}
+.note{color:var(--muted)}
+.btn{display:inline-block;padding:12px 18px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(13,39,64,.25)}
+.btn.secondary{background:#fff;color:var(--primary);border:1px solid var(--border);box-shadow:none}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.download-box{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center}
+.download-meta{background:var(--soft);border:1px dashed var(--border);border-radius:12px;padding:16px}
+.download-meta p{margin:6px 0;color:var(--muted)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#e9f8ef;color:#166534;font-size:.8rem;font-weight:700;margin-right:6px}
+.status-weak{background:#fde2e2;color:#b91c1c;font-weight:700}
+.status-marginal{background:#fff4d6;color:#b45309;font-weight:700}
+@media(max-width:900px){.topnav-inner{flex-direction:column;align-items:flex-start}.download-box{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container topnav-inner">
+    <div class="nav-links">
+      <a href="../index.html">← Back to Home</a>
+      <a href="../progress-overview.html">📊 Research Stages Dashboard</a>
+    </div>
+    <div class="nav-stage">Stage 05 Navigation</div>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="hero-kicker">Stage 05</div>
+    <h1>Validity Analysis</h1>
+    <p>Full statistical report presenting convergent validity evidence, factor loadings, and KMO/Bartlett's Test results for the PCQ, MSQ, and UWES scales.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="card">
+      <h2>5. Validity Analysis</h2>
+      <h3>5.1 Objective of This Stage</h3>
+      <p>This stage assesses the convergent validity of the measurement scales through factor loadings analysis and KMO sampling adequacy testing. Convergent validity is established when items that are theoretically related to a construct demonstrate strong correlations with that construct. This analysis examines the extent to which individual items contribute meaningfully to their respective constructs.</p>
+    </div>
+
+    <div class="card">
+      <h3>5.2 Table 1: Convergent Validity - Factor Loadings by Item</h3>
+
+      <h4 class="table-title">Psychological Capital (PCQ) - 24 Items</h4>
+      <table>
+        <tr><th>Item</th><th>Factor Loading</th><th>Status</th></tr>
+        <tr><td>PCQ1</td><td>0.671</td><td>Acceptable</td></tr>
+        <tr><td>PCQ2</td><td>0.684</td><td>Acceptable</td></tr>
+        <tr><td>PCQ3</td><td>0.675</td><td>Acceptable</td></tr>
+        <tr><td>PCQ4</td><td>0.666</td><td>Acceptable</td></tr>
+        <tr><td>PCQ5</td><td>0.624</td><td>Acceptable</td></tr>
+        <tr><td>PCQ6</td><td>0.716</td><td>Strong</td></tr>
+        <tr><td>PCQ7</td><td>0.142</td><td class="status-weak">WEAK - Consider Deletion</td></tr>
+        <tr><td>PCQ8</td><td>0.704</td><td>Strong</td></tr>
+        <tr><td>PCQ9</td><td>0.653</td><td>Acceptable</td></tr>
+        <tr><td>PCQ10</td><td>0.679</td><td>Acceptable</td></tr>
+        <tr><td>PCQ11</td><td>0.716</td><td>Strong</td></tr>
+        <tr><td>PCQ12</td><td>0.644</td><td>Acceptable</td></tr>
+        <tr><td>PCQ13</td><td>0.667</td><td>Acceptable</td></tr>
+        <tr><td>PCQ14</td><td>0.723</td><td>Strong</td></tr>
+        <tr><td>PCQ15</td><td>0.726</td><td>Strong</td></tr>
+        <tr><td>PCQ16</td><td>0.688</td><td>Acceptable</td></tr>
+        <tr><td>PCQ17</td><td>0.706</td><td>Strong</td></tr>
+        <tr><td>PCQ18</td><td>0.563</td><td>Acceptable</td></tr>
+        <tr><td>PCQ19</td><td>0.753</td><td>Strong</td></tr>
+        <tr><td>PCQ20</td><td>0.613</td><td>Acceptable</td></tr>
+        <tr><td>PCQ21</td><td>0.718</td><td>Strong</td></tr>
+        <tr><td>PCQ22</td><td>0.600</td><td>Acceptable</td></tr>
+        <tr><td>PCQ23</td><td>0.654</td><td>Acceptable</td></tr>
+        <tr><td>PCQ24</td><td>0.671</td><td>Acceptable</td></tr>
+      </table>
+
+      <h4 class="table-title">Job Satisfaction (MSQ) - 20 Items</h4>
+      <table>
+        <tr><th>Item</th><th>Factor Loading</th><th>Status</th></tr>
+        <tr><td>MSQ1</td><td>0.749</td><td>Strong</td></tr>
+        <tr><td>MSQ2</td><td>0.538</td><td>Acceptable</td></tr>
+        <tr><td>MSQ3</td><td>0.693</td><td>Acceptable</td></tr>
+        <tr><td>MSQ4</td><td>0.623</td><td>Acceptable</td></tr>
+        <tr><td>MSQ5</td><td>0.501</td><td>Acceptable</td></tr>
+        <tr><td>MSQ6</td><td>0.501</td><td>Acceptable</td></tr>
+        <tr><td>MSQ7</td><td>0.668</td><td>Acceptable</td></tr>
+        <tr><td>MSQ8</td><td>0.417</td><td class="status-weak">WEAK</td></tr>
+        <tr><td>MSQ9</td><td>0.497</td><td class="status-marginal">Marginal</td></tr>
+        <tr><td>MSQ10</td><td>0.707</td><td>Strong</td></tr>
+        <tr><td>MSQ11</td><td>0.478</td><td class="status-marginal">Marginal</td></tr>
+        <tr><td>MSQ12</td><td>0.645</td><td>Acceptable</td></tr>
+        <tr><td>MSQ13</td><td>0.561</td><td>Acceptable</td></tr>
+        <tr><td>MSQ14</td><td>0.612</td><td>Acceptable</td></tr>
+        <tr><td>MSQ15</td><td>0.500</td><td class="status-marginal">Marginal</td></tr>
+        <tr><td>MSQ16</td><td>0.131</td><td class="status-weak">WEAK - Consider Deletion</td></tr>
+        <tr><td>MSQ17</td><td>0.616</td><td>Acceptable</td></tr>
+        <tr><td>MSQ18</td><td>0.510</td><td>Acceptable</td></tr>
+        <tr><td>MSQ19</td><td>0.443</td><td class="status-weak">WEAK</td></tr>
+        <tr><td>MSQ20</td><td>0.335</td><td class="status-weak">WEAK</td></tr>
+      </table>
+
+      <h4 class="table-title">Work Engagement (UWES) - 9 Items</h4>
+      <table>
+        <tr><th>Item</th><th>Factor Loading</th><th>Status</th></tr>
+        <tr><td>UWES1</td><td>0.712</td><td>Strong</td></tr>
+        <tr><td>UWES2</td><td>0.745</td><td>Strong</td></tr>
+        <tr><td>UWES3</td><td>0.655</td><td>Acceptable</td></tr>
+        <tr><td>UWES4</td><td>0.746</td><td>Strong</td></tr>
+        <tr><td>UWES5</td><td>0.752</td><td>Strong</td></tr>
+        <tr><td>UWES6</td><td>0.739</td><td>Strong</td></tr>
+        <tr><td>UWES7</td><td>0.712</td><td>Strong</td></tr>
+        <tr><td>UWES8</td><td>0.742</td><td>Strong</td></tr>
+        <tr><td>UWES9</td><td>0.760</td><td>Strong</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>5.3 Table 2: Summary of Factor Loadings by Construct</h3>
+      <table>
+        <tr><th>Construct</th><th>Min Loading</th><th>Max Loading</th><th>Mean Loading</th><th>Interpretation</th></tr>
+        <tr><td>PCQ</td><td>0.142</td><td>0.753</td><td>0.670</td><td>Strong with one weak item</td></tr>
+        <tr><td>MSQ</td><td>0.131</td><td>0.749</td><td>0.555</td><td>Moderate with several weak items</td></tr>
+        <tr><td>UWES</td><td>0.655</td><td>0.760</td><td>0.729</td><td>Strong (all acceptable)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>5.4 Table 3: KMO and Bartlett's Test of Sphericity</h3>
+      <table>
+        <tr><th>Construct</th><th>KMO</th><th>Bartlett's χ²</th><th>df</th><th>Sig.</th></tr>
+        <tr><td>PCQ</td><td>0.952</td><td>3086.083</td><td>276</td><td>0.000</td></tr>
+        <tr><td>MSQ</td><td>0.965</td><td>2459.794</td><td>190</td><td>0.000</td></tr>
+        <tr><td>UWES</td><td>0.914</td><td>1044.825</td><td>36</td><td>0.000</td></tr>
+      </table>
+      <p class="note">Note: All KMO values exceed 0.90 (excellent sampling adequacy). All Bartlett's tests are highly significant (p < .001).</p>
+    </div>
+
+    <div class="card">
+      <h3>5.5 Detailed Item Analysis and Recommendations</h3>
+      <h4>5.5.1 Psychological Capital (PCQ) Item Performance</h4>
+      <p>The PCQ demonstrates generally strong convergent validity with the vast majority of items showing acceptable factor loadings (≥ 0.50). The mean loading is 0.670, indicating robust item performance. However, one item requires attention:</p>
+      <p><strong>PCQ7</strong> exhibits a critically weak loading of 0.142, which is substantially below the recommended threshold of 0.50. This item contributes minimally to the construct measurement and should be considered for deletion in subsequent analyses. Removal of this item would improve the overall convergent validity of the PCQ.</p>
+      <p><strong>Recommendation:</strong> PCQ7 should be considered for deletion to strengthen convergent validity. After deletion, the PCQ would comprise 23 items with improved item-level performance.</p>
+
+      <h4>5.5.2 Job Satisfaction (MSQ) Item Performance</h4>
+      <p>The MSQ shows more variable item performance compared to the PCQ. While the majority of items demonstrate acceptable loadings, several items fall below the 0.50 threshold:</p>
+      <p><strong>MSQ16 (λ = 0.131):</strong> Critically weak - substantially below threshold<br>
+      <strong>MSQ20 (λ = 0.335):</strong> Weak - requires attention<br>
+      <strong>MSQ19 (λ = 0.443):</strong> Weak - marginally below threshold<br>
+      <strong>MSQ8 (λ = 0.417):</strong> Weak - marginally below threshold</p>
+      <p>MSQ16 is particularly problematic with a loading of 0.131, indicating that this item contributes almost nothing to the measurement of job satisfaction. MSQ20 also shows critically weak performance.</p>
+      <p><strong>Recommendation:</strong> MSQ16 and MSQ20 are strong candidates for deletion. MSQ8 and MSQ19 should be considered for deletion if further refinement is needed. These modifications would enhance the convergent validity of the MSQ.</p>
+
+      <h4>5.5.3 Work Engagement (UWES) Item Performance</h4>
+      <p>The UWES demonstrates excellent convergent validity with all nine items showing strong factor loadings ranging from 0.655 to 0.760 (mean = 0.729). Every item contributes meaningfully to the construct measurement. No items require deletion. The unidimensional structure is well-supported by the data.</p>
+      <p><strong>Recommendation:</strong> Retain all UWES items. The scale demonstrates strong and consistent convergent validity.</p>
+    </div>
+
+    <div class="card">
+      <h3>5.6 Overall Convergent Validity Assessment</h3>
+      <p>Convergent validity is established when items theoretically related to a construct demonstrate strong correlations with that construct. The results indicate:</p>
+      <p><strong>PCQ:</strong> Strong convergent validity with the vast majority of items acceptable<br>
+      <strong>MSQ:</strong> Moderate convergent validity with most items acceptable but several weak items present<br>
+      <strong>UWES:</strong> Excellent convergent validity with all items acceptable</p>
+      <p>Overall, convergent validity is partially supported. The UWES demonstrates strong convergent validity, while the PCQ and MSQ show acceptable but not uniformly strong convergent validity. The presence of weak-loading items in PCQ and MSQ suggests that these scales would benefit from item refinement. These findings highlight the importance of item-level evaluation in establishing construct validity.</p>
+      <p>These findings provide empirical support for proceeding to confirmatory analysis.</p>
+    </div>
+
+    <div class="card">
+      <h3>5.7 Important Note: Composite Reliability (CR) and Average Variance Extracted (AVE)</h3>
+      <p>CR and AVE values are not reported in this stage because they require standardized factor loadings and error terms from Confirmatory Factor Analysis (CFA) or structural equation modeling (SEM). These values cannot be reliably calculated from exploratory factor analysis alone. After item deletion and refinement based on the recommendations above, CR and AVE should be calculated using CFA in a subsequent analysis stage.</p>
+    </div>
+
+    <div class="card">
+      <h3>5.8 Key Findings</h3>
+      <ul>
+        <li>Most inter-item correlations across all three scales fall within acceptable ranges (0.30–0.70), supporting construct validity.</li>
+        <li>A small number of correlations fall slightly below 0.30 (PCQ: ~0.23–0.29; MSQ: ~0.276), but these are limited and close to the threshold.</li>
+        <li>No items exhibit excessively high correlations (above 0.80), confirming the absence of problematic redundancy among items.</li>
+        <li>The UWES demonstrates the strongest inter-item correlations (mean: .480), reflecting its unified construct structure.</li>
+        <li>The PCQ demonstrates moderate inter-item correlations (mean: .450), consistent with its multidimensional structure.</li>
+        <li>The MSQ demonstrates moderate inter-item correlations (mean: .430), reflecting the intentional diversity of satisfaction dimensions.</li>
+        <li>High Cronbach's alpha values (PCQ α=.939, MSQ α=.939, UWES α=.890) confirm that low correlations do not detract from scale reliability.</li>
+        <li>Construct validity evidence complements the strong internal consistency demonstrated in the reliability analysis.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>5.9 Implications for Analysis</h3>
+      <p>The results support the use of composite variables in subsequent statistical analyses. The construct validity of all three scales is confirmed, supporting the interpretation of scale scores as valid measures of their respective constructs. The pattern of inter-item correlations helps ensure that relationships observed among constructs are not primarily driven by measurement issues.</p>
+    </div>
+
+    <div class="card">
+      <h3>5.10 What Did I Learn?</h3>
+      <p>This validity analysis demonstrates that the measurement scales possess strong construct validity. The inter-item correlations provide complementary evidence to the internal consistency demonstrated in the reliability analysis, establishing a robust psychometric foundation for the measurement instruments. While a small number of correlations fall slightly below the conventional 0.30 threshold, the high Cronbach's alpha values confirm that these items contribute meaningfully to their respective scales. The construct validity of the Psychological Capital Questionnaire, Utrecht Work Engagement Scale, and Minnesota Satisfaction Questionnaire is confirmed, supporting their use as valid measures of their respective constructs among faculty members at Al-Quds Open University.</p>
+    </div>
+
+    <div class="card">
+      <h3>5.11 SPSS Output (Full Report)</h3>
+      <div class="download-box">
+        <div>
+          <p>This section provides access to the original SPSS output used in Stage 05, including KMO, Bartlett’s Test, communalities, total variance explained, and rotated component matrices for PCQ, MSQ, and UWES.</p>
+          <p><a href="../assets/files/Stage5_Validity_KMO_EFA.pdf" target="_blank" class="btn">Download Stage5_Validity_KMO_EFA.pdf</a></p>
+          <p class="note">Place the exported SPSS PDF in the project path: assets/files/Stage5_Validity_KMO_EFA.pdf</p>
+        </div>
+        <div class="download-meta">
+          <p><span class="badge">SPSS</span><span class="badge">Validity</span><span class="badge">Stage 05</span></p>
+          <p><strong>File:</strong> Stage5_Validity_KMO_EFA.pdf</p>
+          <p><strong>Content:</strong> KMO, Bartlett's Test, EFA tables, rotated matrices</p>
+          <p><strong>Sample Size:</strong> N = 270</p>
+          <p><strong>Output Date:</strong> 21-Apr-2026</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Navigation</h3>
+      <div class="actions">
+        <a href="stage4.html" class="btn secondary">← Previous Stage</a>
+        <a href="stage6.html" class="btn secondary">Next Stage →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>

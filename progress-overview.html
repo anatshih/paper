@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Research Stages</title>
+
+<style>
+:root{
+  --primary:#0d2740;
+  --secondary:#123456;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI", Arial;
+  background:linear-gradient(180deg,#eef3f9,#f8fafc);
+  color:var(--text);
+}
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+.topbar{
+  padding:16px 0;
+}
+
+.topbar a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:700;
+}
+
+.hero{
+  padding:30px 0;
+}
+
+.hero-box{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  border-radius:26px;
+  padding:40px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:2.4rem;
+}
+
+.hero p{
+  margin-top:12px;
+  opacity:.9;
+}
+
+.progress-wrapper{
+  margin-top:20px;
+}
+
+.progress-bar{
+  height:10px;
+  background:#ffffff30;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:60%;
+  background:#22c55e;
+}
+
+.summary{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:25px;
+}
+
+.summary-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  text-align:center;
+}
+
+.summary-card h3{
+  margin:0;
+  font-size:1.6rem;
+  color:var(--primary);
+}
+
+.summary-card p{
+  margin:5px 0 0;
+  color:var(--muted);
+}
+
+section{
+  padding:30px 0;
+}
+
+.section-title{
+  font-size:1.6rem;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+
+.stages-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.stage-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+  transition:.2s;
+}
+
+.stage-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.stage-top{
+  display:flex;
+  justify-content:space-between;
+}
+
+.stage-title{
+  margin:0;
+  font-size:1.1rem;
+  color:var(--primary);
+}
+
+.status{
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:bold;
+}
+
+.completed{background:#e9f8ef;color:#166534}
+.progress{background:#fff7e6;color:#a16207}
+.planned{background:#f2ecff;color:#6d28d9}
+
+.stage-card p{
+  color:var(--muted);
+  margin:10px 0;
+}
+
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  background:var(--primary);
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+@media(max-width:900px){
+  .stages-grid,.summary{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <a href="index.html">← Back to Home</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-box">
+      <h1>Research Stages Dashboard</h1>
+      <p>Comprehensive overview of all analytical stages of the research.</p>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <small>Research Progress: 60%</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+<div class="container">
+
+<div class="summary">
+  <div class="summary-card"><h3>9</h3><p>Total Stages</p></div>
+  <div class="summary-card"><h3>3</h3><p>Completed</p></div>
+  <div class="summary-card"><h3>3</h3><p>In Progress</p></div>
+  <div class="summary-card"><h3>3</h3><p>Planned</p></div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">All Stages</h2>
+
+<div class="stages-grid">
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 01 – Demographic Analysis</h3>
+<span class="status completed">Completed</span>
+<p>This stage presents the demographic profile of the sample, including gender, age group, years of experience, academic rank, and branch location.</p>
+<ul>
+<li>Sample profile and frequencies</li>
+<li>Crosstab analysis</li>
+<li>Interpretation of demographic patterns</li>
+</ul>
+<a class="btn" href="stages/stage1.html">Open Stage 01</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 02 – Descriptive Statistics</h3>
+<span class="status completed">Completed</span>
+<p>This stage summarizes the central tendency and dispersion of the main study variables through means and standard deviations.</p>
+<ul>
+<li>Variable means</li>
+<li>Standard deviations</li>
+<li>Level interpretation</li>
+</ul>
+<a class="btn" href="stages/stage2.html">Open Stage 02</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 03 – Assumptions Testing</h3>
+<span class="status progress">In Progress</span>
+<p>This stage verifies statistical assumptions prior to inferential analysis to ensure valid results.</p>
+<ul>
+<li>Normality (Shapiro–Wilk, Q-Q plots)</li>
+<li>Outliers detection (boxplots, Z-scores)</li>
+<li>Homogeneity of variance (Levene’s test)</li>
+</ul>
+<a class="btn" href="stages/stage3.html">Open Stage 03</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 04 – Reliability Analysis</h3>
+<span class="status completed">Completed</span>
+<p>This stage evaluates the internal consistency of the measurement scales used in the study.</p>
+<ul>
+<li>Cronbach’s Alpha for each construct</li>
+<li>Item-total correlations</li>
+<li>Reliability interpretation (≥ 0.70)</li>
+</ul>
+<a class="btn" href="stages/stage4.html">Open Stage 04</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 05 – Validity Analysis</h3>
+<span class="status progress">In Progress</span>
+<p>This stage assesses construct validity to confirm that the instruments measure the intended variables.</p>
+<ul>
+<li>KMO measure and Bartlett’s test</li>
+<li>Exploratory Factor Analysis (EFA)</li>
+<li>Factor loadings and dimensionality</li>
+</ul>
+<a class="btn" href="stages/stage5.html">Open Stage 05</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 06 – Correlation Analysis</h3>
+<span class="status progress">In Progress</span>
+<p>This stage examines the strength and direction of relationships among the main constructs.</p>
+<ul>
+<li>Correlation matrix (Pearson)</li>
+<li>Direction and strength of relationships</li>
+<li>Statistical significance (p-values)</li>
+</ul>
+<a class="btn" href="stages/stage6.html">Open Stage 06</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 07 – Group Differences</h3>
+<span class="status planned">Planned</span>
+<p>This stage compares groups to identify statistically significant differences across demographics.</p>
+<ul>
+<li>Independent samples t-test</li>
+<li>ANOVA</li>
+<li>Post-hoc analysis (if applicable)</li>
+</ul>
+<a class="btn" href="stages/stage7.html">Open Stage 07</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 08 – Regression Analysis</h3>
+<span class="status planned">Planned</span>
+<p>This stage tests direct effects and evaluates the predictive power of the proposed model.</p>
+<ul>
+<li>Regression coefficients (β)</li>
+<li>Model fit (R², F-test)</li>
+<li>Hypothesis testing (H1–H3)</li>
+</ul>
+<a class="btn" href="stages/stage8.html">Open Stage 08</a>
+</div>
+
+<div class="stage-card">
+<h3 class="stage-title">Stage 09 – Mediation Analysis</h3>
+<span class="status planned">Planned</span>
+<p>This stage examines the mediating role of Job Satisfaction between Psychological Capital and Work Engagement.</p>
+<ul>
+<li>Direct, indirect, and total effects</li>
+<li>PROCESS macro (Model 4)</li>
+<li>Bootstrapping confidence intervals</li>
+</ul>
+<a class="btn" href="stages/stage9.html">Open Stage 09</a>
+</div>
+
+</div>
+</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 02 – Descriptive Statistics</title>
+<style>
+:root{
+  --primary:#0d2740;
+  --primary-2:#123456;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --soft:#f0f4f8;
+  --shadow:0 10px 28px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.container{width:min(1180px,92%);margin:auto}
+.topnav{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}
+.topnav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}
+.nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--primary);font-weight:700}
+.nav-stage{color:var(--muted);font-size:.92rem}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;padding:38px 0 34px}
+.hero-kicker{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-size:.85rem;font-weight:700;margin-bottom:14px}
+header h1{margin:0 0 8px;font-size:2rem}
+header p{margin:0;opacity:.92;max-width:760px}
+section{padding:30px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:22px;box-shadow:var(--shadow)}
+.card h2{margin-top:0;color:var(--primary);font-size:1.35rem}
+.card h3,.card h4{color:var(--primary);margin-bottom:10px}
+.table-title{font-weight:700;color:var(--primary);margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.97rem}
+th,td{border:1px solid var(--border);padding:10px 12px;vertical-align:top}
+th{background:var(--soft);text-align:center}
+td{text-align:center}
+ul{margin:10px 0 0 20px;padding:0}
+li{margin-bottom:8px}
+.note{color:var(--muted)}
+.btn{display:inline-block;padding:12px 18px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(13,39,64,.25)}
+.spss-box{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center}
+.spss-meta{background:var(--soft);border:1px dashed var(--border);border-radius:12px;padding:16px}
+.spss-meta p{margin:6px 0;color:var(--muted)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#e9f8ef;color:#166534;font-size:.8rem;font-weight:700;margin-right:6px}
+@media(max-width:900px){.spss-box{grid-template-columns:1fr}.topnav-inner{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container topnav-inner">
+    <div class="nav-links">
+      <a href="../index.html">← Back to Home</a>
+      <a href="../progress-overview.html">📊 Research Stages Dashboard</a>
+    </div>
+    <div class="nav-stage">Stage 02 Navigation</div>
+  </div>
+</div>
+<header>
+  <div class="container">
+    <div class="hero-kicker">Stage 02</div>
+    <h1>Descriptive Statistics</h1>
+    <p>Full statistical report presenting the descriptive profile of the main study variables, detailed analytical interpretation, and supporting SPSS output.</p>
+  </div>
+</header>
+<section>
+  <div class="container">
+
+    <div class="card">
+      <h2>2. Descriptive Statistics</h2>
+      <h3>2.1 Objective of This Stage</h3>
+      <p>The objective of this stage is to examine the central tendency, dispersion, and distributional properties of the main study variables to establish a comprehensive understanding of their empirical characteristics. This foundational analysis provides essential information regarding data quality, normality assumptions, and the preliminary patterns that will inform subsequent inferential statistical procedures.</p>
+    </div>
+
+    <div class="card">
+      <h3>2.2 Table Presentation</h3>
+      <p class="table-title">Table 2: Descriptive Statistics of Main Study Variables</p>
+      <table>
+        <tr>
+          <th>Variable</th>
+          <th>N</th>
+          <th>Min</th>
+          <th>Max</th>
+          <th>Mean</th>
+          <th>Std. Dev</th>
+          <th>Skewness</th>
+        </tr>
+        <tr><td>Psychological Capital</td><td>270</td><td>1.58</td><td>5.96</td><td>4.321</td><td>0.824</td><td>-0.362</td></tr>
+        <tr><td>Work Engagement</td><td>270</td><td>1.44</td><td>6.00</td><td>4.226</td><td>0.909</td><td>-0.371</td></tr>
+        <tr><td>Job Satisfaction</td><td>270</td><td>1.65</td><td>4.95</td><td>3.694</td><td>0.691</td><td>-0.396</td></tr>
+      </table>
+      <p class="note">Note: Valid N = 270. All variables measured on a 6-point Likert scale (1 = Strongly Disagree to 6 = Strongly Agree).</p>
+    </div>
+
+    <div class="card">
+      <h3>2.3 Summary of Descriptive Findings</h3>
+      <p>The descriptive statistics reveal notable patterns across the three primary constructs. Psychological Capital (PCQ) demonstrated the highest mean value (M = 4.321, SD = 0.824), followed by Work Engagement (UWES) (M = 4.226, SD = 0.909), while Job Satisfaction (MSQ) displayed a considerably lower mean value (M = 3.694, SD = 0.691). The standard deviation values, ranging from 0.691 to 0.909, indicate moderate variability in respondent responses. All three variables exhibited slightly negative skewness coefficients (ranging from -0.362 to -0.396), indicating a mild left-skewed distribution with a tendency toward higher response values. These distributional characteristics fall well within acceptable ranges for parametric statistical procedures.</p>
+    </div>
+
+    <div class="card">
+      <h3>2.4 Detailed Analytical Comment</h3>
+      <h3>2.4.1 Comparative Analysis of Variable Means</h3>
+      <p>The observed differential in mean values across the three constructs warrants careful interpretation. The hierarchical ordering of means—Psychological Capital (4.321) &gt; Work Engagement (4.226) &gt; Job Satisfaction (3.694)—reveals a substantive pattern that extends beyond mere statistical variation. The 0.627-point differential between Psychological Capital and Job Satisfaction (approximately 10.4% of the scale range) represents a meaningful discrepancy that merits theoretical consideration.</p>
+      <p>This pattern suggests that respondents possess robust psychological resources and demonstrate substantial work engagement; however, these favorable conditions do not fully translate into commensurate levels of job satisfaction. This dissociation between psychological capital/engagement and satisfaction may reflect several underlying mechanisms. First, it is possible that organizational or contextual factors—such as compensation structures, career advancement opportunities, work-life balance considerations, or perceived organizational support—exert differential influences on satisfaction relative to psychological resources and engagement. Second, the relationship between these constructs may be mediated by additional variables not captured in this descriptive analysis, such as perceived organizational justice, autonomy, or alignment between personal values and organizational culture.</p>
+      <p>This gap may indicate a misalignment between individual-level psychological resources and organizational-level reward and support systems. Given the demographic composition of the sample (predominantly experienced and highly educated), the high levels of psychological capital and engagement are expected, while the lower satisfaction levels may reflect organizational constraints experienced by mid-career professionals.</p>
+
+      <h3>2.4.2 Variability and Consistency Patterns</h3>
+      <p>The standard deviation for Psychological Capital (0.824) is notably higher than that for Job Satisfaction (0.691), indicating greater heterogeneity in respondents' psychological resources compared to their satisfaction levels. This differential variability suggests that psychological capital is more susceptible to individual differences in personality, coping mechanisms, and personal resilience factors, whereas job satisfaction demonstrates more uniform patterns across the sample. Conversely, Work Engagement exhibits the highest standard deviation (0.909), implying the greatest variability in engagement levels. This elevated variability in engagement may reflect diverse organizational contexts, role characteristics, or individual predispositions toward work involvement.</p>
+      <p>The coefficient of variation (CV = SD/Mean) provides additional insight into relative variability: Psychological Capital (CV = 0.191), Work Engagement (CV = 0.215), and Job Satisfaction (CV = 0.187). These comparable coefficients of variation indicate that, when accounting for differences in mean levels, the relative consistency of responses is similar across constructs, suggesting that the observed differences in absolute standard deviations reflect primarily the differences in mean levels rather than fundamentally different patterns of response consistency.</p>
+
+      <h3>2.4.3 Distributional Properties and Normality Assessment</h3>
+      <p>The negative skewness values observed across all three variables indicate a concentration of responses toward the upper end of the response scale, reflecting a general tendency among respondents to endorse higher agreement levels. This pattern is not uncommon in organizational research, particularly when measuring positive psychological constructs, and may reflect either genuine elevated levels of the constructs or potential response bias toward socially desirable responses.</p>
+      <p>The modest negative kurtosis values suggest platykurtic distributions, indicating that the data exhibit slightly flatter distributions than would be expected under perfect normality. This characteristic implies that extreme values (both high and low) are less pronounced than in a normal distribution, which is generally favorable for parametric statistical procedures. The combination of minimal skewness and kurtosis values substantially below conventional thresholds of concern provides strong empirical support for the assumption of approximate normality, thereby justifying the application of parametric statistical tests in subsequent analytical phases.</p>
+
+      <h3>2.4.4 Scale Range and Response Patterns</h3>
+      <p>All three variables demonstrated utilization of the full or near-full range of the measurement scale. Psychological Capital ranged from 1.58 to 5.96, Work Engagement from 1.44 to 6.00, and Job Satisfaction from 1.65 to 4.95. The near-complete utilization of the scale range, particularly the achievement of or near-achievement of the theoretical maximum (6.0) for Work Engagement, indicates that respondents employed the full spectrum of response options, supporting the discriminant validity of the measurement instruments and suggesting adequate variability for detecting relationships among variables.</p>
+      <p>Notably, Job Satisfaction did not reach the upper limit of the scale, with a maximum value of 4.95 compared to the theoretical scale maximum of 6.0, unlike the other variables. This constrained ceiling suggests a structural limitation in satisfaction responses and reinforces the interpretation of relatively lower satisfaction levels as a substantive finding rather than a measurement artifact.</p>
+    </div>
+
+    <div class="card">
+      <h3>2.5 Key Findings</h3>
+      <ul>
+        <li>Psychological Capital demonstrates the highest mean level (M = 4.321), indicating substantial psychological resources within the sample.</li>
+        <li>Work Engagement exhibits elevated levels (M = 4.226) but slightly lower than psychological capital, suggesting meaningful but somewhat attenuated engagement.</li>
+        <li>Job Satisfaction is notably lower (M = 3.694), representing a meaningful 0.627-point differential from psychological capital and indicating a potential gap between psychological resources/engagement and satisfaction outcomes.</li>
+        <li>Response variability is moderate and comparable across constructs (SD range: 0.691–0.909), indicating consistent response patterns without excessive dispersion.</li>
+        <li>Distributional properties (skewness and kurtosis) are within acceptable ranges, supporting the assumption of approximate normality and justifying parametric statistical procedures.</li>
+        <li>The full or near-full utilization of the measurement scale range indicates adequate discriminant validity and response variability.</li>
+        <li>Negative skewness across all variables reflects a general tendency toward higher response values, consistent with positive psychological constructs in organizational settings.</li>
+        <li>The constrained ceiling for Job Satisfaction (Max = 4.95) suggests a structural limitation in satisfaction responses, reinforcing the substantive nature of lower satisfaction levels.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2.6 Implications for Statistical Analysis</h3>
+      <p>The descriptive findings carry several important implications for subsequent statistical analyses. First, the approximate normality of the distributions, as evidenced by acceptable skewness and kurtosis values, provides empirical justification for employing parametric statistical tests (e.g., Pearson correlation, independent samples t-tests, analysis of variance) in subsequent analytical phases. This is a methodologically important consideration, as parametric procedures are generally more powerful than their non-parametric alternatives when distributional assumptions are met.</p>
+      <p>Second, the meaningful differences in mean values across constructs suggest that these variables represent distinct psychological phenomena that may exhibit differential relationships with other variables of interest. The particular pattern of elevated psychological capital and engagement coupled with relatively lower satisfaction warrants investigation of potential mediating or moderating mechanisms that might explain this dissociation. These findings are consistent with previous research indicating that psychological resources and engagement do not always translate directly into job satisfaction outcomes.</p>
+      <p>Third, the moderate level of variability across all constructs indicates that there is sufficient heterogeneity in the data to permit meaningful exploration of individual differences and potential group-based variations. The absence of floor or ceiling effects (i.e., extreme clustering at scale endpoints) supports the sensitivity of the measurement instruments and their capacity to discriminate among respondents.</p>
+      <p>Fourth, the consistency of response patterns across constructs (as indicated by comparable coefficients of variation) suggests that the observed differences in means are not artifacts of differential measurement precision or response consistency, but rather reflect genuine differences in the underlying constructs.</p>
+    </div>
+
+    <div class="card">
+      <h3>2.7 What Did I Learn?</h3>
+      <p>This descriptive statistical analysis establishes a robust foundation for understanding the empirical characteristics of the primary study variables. The analysis confirms that the data exhibit favorable statistical properties, including approximate normality, adequate variability, and full-scale utilization. Critically, the analysis reveals a noteworthy pattern wherein respondents report high levels of psychological capital and work engagement, yet these elevated psychological resources do not fully correspond to commensurate levels of job satisfaction. This pattern suggests the operation of additional organizational or contextual factors that influence satisfaction independently of psychological resources and engagement. The identification of this pattern in the descriptive phase provides an important empirical foundation for subsequent inferential analyses, which may illuminate the mechanisms underlying this dissociation and identify potential organizational interventions to enhance satisfaction levels.</p>
+    </div>
+
+    <div class="card">
+      <h3>2.8 Next Step</h3>
+      <p>The next analytical phase will involve conducting reliability analysis to assess the internal consistency and structural validity of the measurement scales. This will include calculation of Cronbach's alpha coefficients for each construct, examination of item-total correlations, and exploratory factor analysis to confirm the dimensionality of the measurement instruments. These analyses will provide assurance regarding the psychometric quality of the scales and establish the foundation for subsequent analyses examining relationships among the variables and their associations with demographic characteristics.</p>
+    </div>
+
+    <div class="card">
+      <h3>2.9 SPSS Output (Full Report)</h3>
+      <div class="spss-box">
+        <div>
+          <p>This section provides access to the original SPSS output used in Stage 02, including descriptive statistics tables and related output supporting the reported findings and interpretations.</p>
+          <p><a href="../assets/files/02_Descriptive_Statistics_Report.pdf" target="_blank" class="btn">Download SPSS Output (PDF)</a></p>
+          <p class="note">Place the exported SPSS PDF in the project path: assets/files/02_Descriptive_Statistics_Report.pdf</p>
+        </div>
+        <div class="spss-meta">
+          <p><span class="badge">SPSS</span><span class="badge">Output</span><span class="badge">Stage 02</span></p>
+          <p><strong>File:</strong> 02_Descriptive_Statistics_Report.pdf</p>
+          <p><strong>Content:</strong> Descriptive Statistics, means, standard deviations, skewness</p>
+          <p><strong>Sample Size:</strong> N = 270</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>

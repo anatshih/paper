@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 03 – Assumptions Testing</title>
+<style>
+:root{
+  --primary:#0d2740;
+  --primary-2:#123456;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --soft:#f0f4f8;
+  --shadow:0 10px 28px rgba(15,23,42,.06);
+  --progress-bg:#fff7e6;
+  --progress-text:#a16207;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.container{width:min(1180px,92%);margin:auto}
+.topnav{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}
+.topnav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}
+.nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--primary);font-weight:700}
+.nav-stage{color:var(--muted);font-size:.92rem}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;padding:38px 0 34px}
+.hero-kicker{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-size:.85rem;font-weight:700;margin-bottom:14px}
+header h1{margin:0 0 8px;font-size:2rem}
+header p{margin:0;opacity:.92;max-width:760px}
+section{padding:34px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:22px;box-shadow:var(--shadow)}
+.center-card{text-align:center;padding:42px 28px}
+.status-badge{display:inline-block;padding:10px 16px;border-radius:999px;background:var(--progress-bg);color:var(--progress-text);font-size:.95rem;font-weight:800;letter-spacing:.3px;margin-bottom:18px}
+.coming-soon{font-size:2.3rem;font-weight:800;color:var(--primary);margin:0 0 12px}
+.subtitle{max-width:760px;margin:0 auto 18px;color:var(--muted)}
+.progress-wrap{max-width:720px;margin:24px auto 0}
+.progress-labels{display:flex;justify-content:space-between;font-size:.92rem;color:var(--muted);margin-bottom:8px}
+.progress-bar{height:14px;background:#e8edf5;border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:42%;background:linear-gradient(90deg,#f59e0b,#d97706)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.info-box{background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:left}
+.info-box h3{margin:0 0 10px;color:var(--primary);font-size:1rem}
+.info-box p{margin:0;color:var(--muted);font-size:.95rem}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 18px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(13,39,64,.25)}
+.btn.secondary{background:#fff;color:var(--primary);border:1px solid var(--border);box-shadow:none}
+.note{margin-top:22px;color:var(--muted);font-size:.95rem}
+@media(max-width:900px){.topnav-inner{flex-direction:column;align-items:flex-start}.info-grid{grid-template-columns:1fr}.coming-soon{font-size:1.8rem}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container topnav-inner">
+    <div class="nav-links">
+      <a href="../index.html">← Back to Home</a>
+      <a href="../progress-overview.html">📊 Research Stages Dashboard</a>
+    </div>
+    <div class="nav-stage">Stage 03 Navigation</div>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="hero-kicker">Stage 03</div>
+    <h1>Assumptions Testing</h1>
+    <p>This page is reserved for the assumptions testing stage, including normality checks, outlier detection, and homogeneity of variance assessment.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="card center-card">
+      <div class="status-badge">IN PROGRESS</div>
+      <h2 class="coming-soon">Coming Soon</h2>
+      <p class="subtitle">
+        The content of this stage is currently being prepared and will be added soon in a full academic format consistent with the rest of the project pages.
+      </p>
+
+      <div class="progress-wrap">
+        <div class="progress-labels">
+          <span>Preparation Status</span>
+          <span>In Progress</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Normality Testing</h3>
+          <p>Shapiro–Wilk results, skewness, kurtosis, and graphical checks will be presented here.</p>
+        </div>
+        <div class="info-box">
+          <h3>Outlier Detection</h3>
+          <p>Boxplots, standardized values, and identification of unusual observations will be included.</p>
+        </div>
+        <div class="info-box">
+          <h3>Homogeneity of Variance</h3>
+          <p>Levene’s test and related assumption checks for group comparisons will be documented.</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="../progress-overview.html" class="btn">Back to Stages Dashboard</a>
+        <a href="stage2.html" class="btn secondary">← Previous Stage</a>
+      </div>
+
+      <p class="note">Status note: This stage is under preparation and will be updated once the assumptions testing outputs are finalized.</p>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

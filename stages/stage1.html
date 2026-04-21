@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 01 – Demographic Analysis</title>
+<style>
+:root{
+  --primary:#0d2740;
+  --primary-2:#123456;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --soft:#f0f4f8;
+  --shadow:0 10px 28px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.container{width:min(1180px,92%);margin:auto}
+.topnav{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}
+.topnav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}
+.nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--primary);font-weight:700}
+.nav-stage{color:var(--muted);font-size:.92rem}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;padding:38px 0 34px}
+.hero-kicker{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-size:.85rem;font-weight:700;margin-bottom:14px}
+header h1{margin:0 0 8px;font-size:2rem}
+header p{margin:0;opacity:.92;max-width:760px}
+section{padding:30px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:22px;box-shadow:var(--shadow)}
+.card h2{margin-top:0;color:var(--primary);font-size:1.35rem}
+.card h3,.card h4{color:var(--primary);margin-bottom:10px}
+.table-title{font-weight:700;color:var(--primary);margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.96rem;background:#fff}
+th,td{border:1px solid var(--border);padding:10px 12px;vertical-align:top}
+th{background:var(--soft);text-align:center}
+td{text-align:center}
+td.left{text-align:left}
+ul{margin:10px 0 0 20px;padding:0}
+li{margin-bottom:8px}
+.note{color:var(--muted)}
+.btn{display:inline-block;padding:12px 18px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(13,39,64,.25)}
+.spss-box{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:center}
+.spss-meta{background:var(--soft);border:1px dashed var(--border);border-radius:12px;padding:16px}
+.spss-meta p{margin:6px 0;color:var(--muted)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#e9f8ef;color:#166534;font-size:.8rem;font-weight:700;margin-right:6px}
+@media(max-width:900px){.spss-box{grid-template-columns:1fr}.topnav-inner{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container topnav-inner">
+    <div class="nav-links">
+      <a href="../index.html">← Back to Home</a>
+      <a href="../progress-overview.html">📊 Research Stages Dashboard</a>
+    </div>
+    <div class="nav-stage">Stage 01 Navigation</div>
+  </div>
+</div>
+<header>
+  <div class="container">
+    <div class="hero-kicker">Stage 01</div>
+    <h1>Demographic Analysis</h1>
+    <p>Full statistical report presenting the demographic profile of the sample, detailed analytical comments, crosstab analysis, and supporting SPSS output.</p>
+  </div>
+</header>
+<section>
+  <div class="container">
+
+    <div class="card">
+      <h2>1. Demographic Analysis</h2>
+      <h3>1.1 Objective of This Stage</h3>
+      <p>This stage describes the demographic characteristics of the study sample (N = 270) across five key variables: gender, age group, years of experience at Al-Quds Open University (QOU), highest degree earned, and branch location. The purpose is to establish a clear profile of the respondents and assess the suitability of the sample for subsequent statistical analyses.</p>
+    </div>
+
+    <div class="card">
+      <h3>1.2 Table 1: Demographic Characteristics of the Sample (N = 270)</h3>
+      <table>
+        <tr>
+          <th>Variable</th>
+          <th>Category</th>
+          <th>Frequency</th>
+          <th>Percentage (%)</th>
+        </tr>
+        <tr><td>Gender</td><td>Male</td><td>173</td><td>64.1</td></tr>
+        <tr><td></td><td>Female</td><td>97</td><td>35.9</td></tr>
+        <tr><td>Age Group</td><td>41-50</td><td>88</td><td>32.6</td></tr>
+        <tr><td></td><td>51-60</td><td>80</td><td>29.6</td></tr>
+        <tr><td></td><td>30-40</td><td>64</td><td>23.7</td></tr>
+        <tr><td></td><td>More than 60</td><td>31</td><td>11.5</td></tr>
+        <tr><td></td><td>Less than 30</td><td>7</td><td>2.6</td></tr>
+        <tr><td>Years of Experience at QOU</td><td>11-15 years</td><td>67</td><td>24.8</td></tr>
+        <tr><td></td><td>5-10 years</td><td>63</td><td>23.3</td></tr>
+        <tr><td></td><td>16-20 years</td><td>53</td><td>19.6</td></tr>
+        <tr><td></td><td>More than 20 years</td><td>49</td><td>18.1</td></tr>
+        <tr><td></td><td>Less than 5 years</td><td>38</td><td>14.1</td></tr>
+        <tr><td>Highest Degree Earned</td><td>Master</td><td>205</td><td>75.9</td></tr>
+        <tr><td></td><td>Bachelor</td><td>53</td><td>19.6</td></tr>
+        <tr><td></td><td>PhD</td><td>12</td><td>4.4</td></tr>
+        <tr><td>Branch Location</td><td>Hebron</td><td>38</td><td>14.1</td></tr>
+        <tr><td></td><td>Ramallah</td><td>37</td><td>13.7</td></tr>
+        <tr><td></td><td>Nablus</td><td>36</td><td>13.3</td></tr>
+        <tr><td></td><td>Bethlehem</td><td>22</td><td>8.1</td></tr>
+        <tr><td></td><td>Khan Yunis</td><td>19</td><td>7.0</td></tr>
+        <tr><td></td><td>Gaza</td><td>18</td><td>6.7</td></tr>
+        <tr><td></td><td>Tulkarm</td><td>17</td><td>6.3</td></tr>
+        <tr><td></td><td>Jenin</td><td>17</td><td>6.3</td></tr>
+        <tr><td></td><td>North Gaza</td><td>13</td><td>4.8</td></tr>
+        <tr><td></td><td>Jericho</td><td>11</td><td>4.1</td></tr>
+        <tr><td></td><td>Qalqilya</td><td>10</td><td>3.7</td></tr>
+        <tr><td></td><td>Tubas</td><td>10</td><td>3.7</td></tr>
+        <tr><td></td><td>Rafah</td><td>9</td><td>3.3</td></tr>
+        <tr><td></td><td>Deir al-Balah</td><td>9</td><td>3.3</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>1.3 Detailed Analytical Comment</h3>
+      <h4>1.3.1 Gender</h4>
+      <p>The sample comprises 173 males (64.1%) and 97 females (35.9%), indicating a male predominance with a ratio of approximately 1.78:1. Males are overrepresented across all age groups, with the highest concentration in the 41-50 age category (67.0% of that age group). The gender distribution may reflect the institutional staffing composition at QOU.</p>
+      <h4>1.3.2 Age Group</h4>
+      <p>The age distribution is concentrated in the middle-age categories. The 41-50 age group is the largest (88 respondents, 32.6%), followed by 51-60 (80 respondents, 29.6%) and 30-40 (64 respondents, 23.7%). Together, these three categories account for 79.9% of the sample. Respondents aged more than 60 comprise 11.5% (31 respondents), while those under 30 represent only 2.6% (7 respondents). This distribution indicates that the sample is dominated by mid-career and experienced professionals.</p>
+      <h4>1.3.3 Years of Experience at QOU</h4>
+      <p>Experience at QOU is relatively well-distributed across all categories. The 11-15 years category has the highest frequency (67 respondents, 24.8%), followed by 5-10 years (63 respondents, 23.3%) and 16-20 years (53 respondents, 19.6%). Respondents with more than 20 years of experience comprise 18.1% (49 respondents), while those with less than 5 years represent 14.1% (38 respondents). This balanced distribution suggests adequate representation across different tenure levels.</p>
+      <h4>1.3.4 Highest Degree Earned</h4>
+      <p>The sample is highly educated. Master's degree holders constitute the majority at 75.9% (205 respondents), while Bachelor's degree holders represent 19.6% (53 respondents). PhD holders are a small minority at 4.4% (12 respondents). This concentration of advanced degree holders is consistent with the academic context of a higher education institution.</p>
+      <h4>1.3.5 Branch Location</h4>
+      <p>Respondents are distributed across 15 Palestinian branches. The three largest branches are Hebron (38 respondents, 14.1%), Ramallah (37 respondents, 13.7%), and Nablus (36 respondents, 13.3%). Bethlehem contributes 8.1% (22 respondents), while Khan Yunis and Gaza contribute 7.0% and 6.7% respectively. The remaining branches (Tulkarm, Jenin, North Gaza, Jericho, Qalqilya, Tubas, Rafah, and Deir al-Balah) each contribute between 3.3% and 6.3% of the sample. This geographic distribution reflects the organizational structure of QOU across Palestinian territories.</p>
+    </div>
+
+    <div class="card">
+      <h3>1.4 Crosstab Analysis</h3>
+
+      <h4 class="table-title">1.4.1 Table 2: Distribution of Gender across Age Groups</h4>
+      <table>
+        <tr><th>Gender</th><th>Less than 30</th><th>30-40</th><th>41-50</th><th>51-60</th><th>More than 60</th><th>Total</th></tr>
+        <tr><td>Male (Count)</td><td>4</td><td>38</td><td>59</td><td>50</td><td>22</td><td>173</td></tr>
+        <tr><td>% within Gender</td><td>2.3%</td><td>22.0%</td><td>34.1%</td><td>28.9%</td><td>12.7%</td><td>100.0%</td></tr>
+        <tr><td>% within Age group</td><td>57.1%</td><td>59.4%</td><td>67.0%</td><td>62.5%</td><td>71.0%</td><td>64.1%</td></tr>
+        <tr><td>Female (Count)</td><td>3</td><td>26</td><td>29</td><td>30</td><td>9</td><td>97</td></tr>
+        <tr><td>% within Gender</td><td>3.1%</td><td>26.8%</td><td>29.9%</td><td>30.9%</td><td>9.3%</td><td>100.0%</td></tr>
+        <tr><td>% within Age group</td><td>42.9%</td><td>40.6%</td><td>33.0%</td><td>37.5%</td><td>29.0%</td><td>35.9%</td></tr>
+        <tr><td>Total (Count)</td><td>7</td><td>64</td><td>88</td><td>80</td><td>31</td><td>270</td></tr>
+      </table>
+      <p>The crosstabulation of gender and age group reveals that males are overrepresented in all age categories. Males comprise 67.0% of the 41-50 age group, 62.5% of the 51-60 group, and 71.0% of the 60+ group. Females show relatively balanced representation across age groups (30-40: 26.8%, 41-50: 29.9%, 51-60: 30.9%). This pattern suggests internal consistency in the data.</p>
+
+      <h4 class="table-title">1.4.2 Table 3: Distribution of Age Groups across Years of Experience at QOU</h4>
+      <table>
+        <tr><th>Age Group</th><th>Less than 5</th><th>5-10</th><th>11-15</th><th>16-20</th><th>More than 20</th><th>Total</th></tr>
+        <tr><td>Less than 30 (Count)</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0</td><td>7</td></tr>
+        <tr><td>% within Age</td><td>100.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>18.4%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.6%</td></tr>
+        <tr><td>30-40 (Count)</td><td>31</td><td>33</td><td>0</td><td>0</td><td>0</td><td>64</td></tr>
+        <tr><td>% within Age</td><td>48.4%</td><td>51.6%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>81.6%</td><td>52.4%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>23.7%</td></tr>
+        <tr><td>41-50 (Count)</td><td>0</td><td>30</td><td>58</td><td>0</td><td>0</td><td>88</td></tr>
+        <tr><td>% within Age</td><td>0.0%</td><td>34.1%</td><td>65.9%</td><td>0.0%</td><td>0.0%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>0.0%</td><td>47.6%</td><td>86.6%</td><td>0.0%</td><td>0.0%</td><td>32.6%</td></tr>
+        <tr><td>51-60 (Count)</td><td>0</td><td>0</td><td>9</td><td>53</td><td>18</td><td>80</td></tr>
+        <tr><td>% within Age</td><td>0.0%</td><td>0.0%</td><td>11.3%</td><td>66.3%</td><td>22.5%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>0.0%</td><td>0.0%</td><td>13.4%</td><td>100.0%</td><td>36.7%</td><td>29.6%</td></tr>
+        <tr><td>More than 60 (Count)</td><td>0</td><td>0</td><td>0</td><td>0</td><td>31</td><td>31</td></tr>
+        <tr><td>% within Age</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>100.0%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>63.3%</td><td>11.5%</td></tr>
+        <tr><td>Total (Count)</td><td>38</td><td>63</td><td>67</td><td>53</td><td>49</td><td>270</td></tr>
+      </table>
+      <p>The relationship between age group and institutional experience demonstrates a clear and logical progression pattern. Respondents aged less than 30 are exclusively concentrated in the less than 5 years category, while those aged 30-40 are distributed between less than 5 years (48.4%) and 5-10 years (51.6%). The 41-50 age group spans 5-10 years (34.1%) and 11-15 years (65.9%), whereas the 51-60 group is distributed across 11-15 years (11.3%), 16-20 years (66.3%), and more than 20 years (22.5%). Respondents aged more than 60 are exclusively in the 20+ years category. This pattern reveals a strong structural alignment between age and tenure, indicating that career progression at QOU follows expected life-course patterns.</p>
+
+      <h4 class="table-title">1.4.3 Table 4: Distribution of Highest Degree Earned across Years of Experience at QOU</h4>
+      <table>
+        <tr><th>Highest Degree</th><th>Less than 5</th><th>5-10</th><th>11-15</th><th>16-20</th><th>More than 20</th><th>Total</th></tr>
+        <tr><td>Bachelor (Count)</td><td>14</td><td>22</td><td>11</td><td>5</td><td>1</td><td>53</td></tr>
+        <tr><td>% within Degree</td><td>26.4%</td><td>41.5%</td><td>20.8%</td><td>9.4%</td><td>1.9%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>36.8%</td><td>34.9%</td><td>16.4%</td><td>9.4%</td><td>2.0%</td><td>19.6%</td></tr>
+        <tr><td>Master (Count)</td><td>23</td><td>38</td><td>52</td><td>45</td><td>47</td><td>205</td></tr>
+        <tr><td>% within Degree</td><td>11.2%</td><td>18.5%</td><td>25.4%</td><td>22.0%</td><td>22.9%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>60.5%</td><td>60.3%</td><td>77.6%</td><td>84.9%</td><td>95.9%</td><td>75.9%</td></tr>
+        <tr><td>PhD (Count)</td><td>1</td><td>3</td><td>4</td><td>3</td><td>1</td><td>12</td></tr>
+        <tr><td>% within Degree</td><td>8.3%</td><td>25.0%</td><td>33.3%</td><td>25.0%</td><td>8.3%</td><td>100.0%</td></tr>
+        <tr><td>% within Experience</td><td>2.6%</td><td>4.8%</td><td>6.0%</td><td>5.7%</td><td>2.0%</td><td>4.4%</td></tr>
+        <tr><td>Total (Count)</td><td>38</td><td>63</td><td>67</td><td>53</td><td>49</td><td>270</td></tr>
+      </table>
+      <p>The relationship between highest degree earned and institutional experience suggests a relationship between institutional tenure and degree attainment. Bachelor degree holders are heavily concentrated in the early career stage (41.5% in 5-10 years), with representation declining sharply at higher tenure levels (only 1.9% in 20+ years). This pattern may indicate progression toward advanced degrees or differences in retention across qualification levels. Conversely, Master's degree holders show increasing representation with tenure, comprising 60.5% of those with less than 5 years experience and rising to 95.9% of those with 20+ years experience. PhD holders remain a small minority across all tenure levels (2.0-6.0%), with slight concentration in the 11-15 year experience range (6.0%).</p>
+    </div>
+
+    <div class="card">
+      <h3>1.5 Summary of Demographic Characteristics</h3>
+      <p>The sample consists of 270 respondents with complete data across all demographic variables. The sample is predominantly male (64.1%), concentrated in the 41-60 age range (62.2%), and highly educated with 75.9% holding Master's degrees. Institutional experience is well-distributed across all tenure levels. Respondents are distributed across 15 Palestinian branches, with the largest concentrations in Hebron, Ramallah, and Nablus. These characteristics indicate a mature, experienced, and academically qualified sample suitable for investigating the research questions.</p>
+    </div>
+
+    <div class="card">
+      <h3>1.6 Key Observations</h3>
+      <ul>
+        <li>Sample size (N = 270) is adequate for conducting robust statistical analyses.</li>
+        <li>No missing data across any demographic variable, indicating high data quality.</li>
+        <li>Male predominance (64.1%) is consistent across all age groups and experience levels.</li>
+        <li>Age concentration in 41-60 range (62.2%) indicates sample represents mid-career professionals.</li>
+        <li>Institutional experience is well-balanced across all tenure levels, enhancing representativeness.</li>
+        <li>High educational attainment (75.9% Master's degrees) strengthens credibility of self-reported measures.</li>
+        <li>Geographic representation across 15 branches supports sample diversity.</li>
+        <li>Crosstab analyses confirm logical consistency across demographic variables.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>1.7 Implications for Statistical Analysis</h3>
+      <p>The large sample size and complete data support the robustness of inferential testing. The balanced distribution of institutional experience enhances representativeness across tenure levels. However, the gender imbalance and concentration in the 41-60 age range indicate that findings are most applicable to experienced, mid-career professionals. Interpretations of gender-related findings should be made with consideration of the observed gender distribution. The high educational level is a strength, as it increases the likelihood of accurate responses to complex survey items.</p>
+    </div>
+
+    <div class="card">
+      <h3>1.8 What Did I Learn?</h3>
+      <p>The demographic analysis confirms that the dataset is complete and suitable for advanced statistical analyses. The sample demonstrates adequate size with no missing values, indicating rigorous data collection. The balanced distribution of institutional experience and geographic representation across 15 branches provides a comprehensive organizational perspective. The identified demographic patterns—male predominance and age concentration—establish important context for interpreting subsequent findings and identifying potential limitations in generalizability. Overall, the sample provides a solid basis for investigating the relationships among psychological capital, job satisfaction, and work engagement.</p>
+    </div>
+
+    <div class="card">
+      <h3>1.9 Next Step</h3>
+      <p>
+      The next stage involves conducting descriptive statistical analysis of the main study variables. This will include examining means, standard deviations, and distribution patterns to establish a deeper understanding of the data and prepare for subsequent inferential analysis.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>1.10 SPSS Output (Full Report)</h3>
+      <div class="spss-box">
+        <div>
+          <p>This section provides access to the <strong>original SPSS output</strong> used in Stage 01, including frequencies, cross-tabulations, and Chi-square tests. It serves as the primary evidence supporting the reported results and interpretations.</p>
+          <p><a href="../assets/files/01_Demographic_Analysis_Report.pdf" target="_blank" class="btn">Download PDF</a></p>
+          <p class="note">This file contains the original SPSS output including frequencies tables, cross-tabulations, and Chi-square tests.</p>
+        </div>
+        <div class="spss-meta">
+          <p><span class="badge">SPSS</span><span class="badge">Output</span><span class="badge">Verified</span></p>
+          <p><strong>File:</strong> 01_Demographic_Analysis_Report.pdf</p>
+          <p><strong>Content:</strong> Frequencies, Crosstabs, Chi-square tests</p>
+          <p><strong>Sample Size:</strong> N = 270</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>

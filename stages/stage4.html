@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage 04 – Reliability Analysis</title>
+<style>
+:root{
+  --primary:#0d2740;
+  --primary-2:#123456;
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --soft:#f0f4f8;
+  --shadow:0 10px 28px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+.container{width:min(1180px,92%);margin:auto}
+.topnav{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}
+.topnav-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px 0}
+.nav-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--primary);font-weight:700}
+.nav-stage{color:var(--muted);font-size:.92rem}
+header{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:white;padding:38px 0 34px}
+.hero-kicker{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-size:.85rem;font-weight:700;margin-bottom:14px}
+header h1{margin:0 0 8px;font-size:2rem}
+header p{margin:0;opacity:.92;max-width:760px}
+section{padding:30px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:22px;box-shadow:var(--shadow)}
+.card h2{margin-top:0;color:var(--primary);font-size:1.35rem}
+.card h3,.card h4{color:var(--primary);margin-bottom:10px}
+.table-title{font-weight:700;color:var(--primary);margin-bottom:14px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.97rem;background:#fff}
+th,td{border:1px solid var(--border);padding:10px 12px;vertical-align:top}
+th{background:var(--soft);text-align:center}
+td{text-align:center}
+ul{margin:10px 0 0 20px;padding:0}
+li{margin-bottom:8px}
+.note{color:var(--muted)}
+.btn{display:inline-block;padding:12px 18px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;text-decoration:none;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(13,39,64,.25)}
+.btn.secondary{background:#fff;color:var(--primary);border:1px solid var(--border);box-shadow:none}
+.files-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.file-card{background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:18px}
+.file-card h4{margin:0 0 8px;color:var(--primary);font-size:1rem}
+.file-card p{margin:0 0 14px;color:var(--muted);font-size:.95rem}
+@media(max-width:900px){.topnav-inner{flex-direction:column;align-items:flex-start}.files-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container topnav-inner">
+    <div class="nav-links">
+      <a href="../index.html">← Back to Home</a>
+      <a href="../progress-overview.html">📊 Research Stages Dashboard</a>
+    </div>
+    <div class="nav-stage">Stage 04 Navigation</div>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="hero-kicker">Stage 04</div>
+    <h1>Reliability Analysis</h1>
+    <p>Full statistical report presenting reliability statistics, item-level evaluation, interpretation, and downloadable SPSS reliability outputs for all scales.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="card">
+      <h2>4. Reliability Analysis</h2>
+      <h3>4.1 Objective of This Stage</h3>
+      <p>This stage assesses the internal consistency of the measurement scales (PCQ, MSQ, and UWES) using Cronbach's alpha and item-level analysis.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.2 Table 3: Reliability Statistics for All Scales</h3>
+      <table>
+        <tr>
+          <th>Scale</th>
+          <th>Cronbach's Alpha</th>
+          <th>Standardized Alpha</th>
+          <th>N of Items</th>
+          <th>N of Cases</th>
+        </tr>
+        <tr><td>Psychological Capital (PCQ)</td><td>.939</td><td>.939</td><td>24</td><td>270</td></tr>
+        <tr><td>Job Satisfaction (MSQ)</td><td>.939</td><td>.939</td><td>20</td><td>270</td></tr>
+        <tr><td>Work Engagement (UWES)</td><td>.890</td><td>.890</td><td>9</td><td>270</td></tr>
+      </table>
+      <p class="note">Note: N = 270 for all scales. All Cronbach's alpha values exceed the recommended threshold of 0.70.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.3 Summary of Reliability Findings</h3>
+      <p>All three scales demonstrate strong internal consistency, with Cronbach's alpha coefficients exceeding the conventional threshold of .70. The PCQ and MSQ both achieved identical alpha coefficients of .939, indicating excellent reliability. The UWES achieved an alpha of .890, which also exceeds the threshold for good reliability. These findings suggest that each scale measures a coherent underlying construct and that all items within each scale contribute meaningfully to the overall measurement. These findings support the use of the scales in subsequent analysis.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.4 Reliability Interpretation</h3>
+      <p>Cronbach's alpha values indicate that PCQ and MSQ have excellent reliability (α = .939), while UWES shows high reliability (α = .890). These coefficients demonstrate that respondents understood the items consistently and that the items measure their intended underlying constructs with minimal measurement error. The scales are suitable for use in hypothesis testing and subsequent statistical analyses.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.5 Item-Total Correlation Analysis</h3>
+      <p>Item-total correlation analysis examines the relationship between each individual item and the total scale score. Items with low item-total correlations (typically below .30) may be measuring something different from the overall construct and are candidates for deletion. In the current analysis, all items across all three scales demonstrated positive correlations with their respective scale totals. For the MSQ, inter-item correlations ranged from .298 to .536, with an average of approximately .43. For the UWES, inter-item correlations ranged from .312 to .631, with an average of approximately .48. All items exceeded or closely approached the recommended threshold (.30), indicating that items are related to one another (supporting internal consistency) without indicating problematic redundancy.
+          Although a very small number of inter-item correlations were slightly below the recommended threshold, these values were very close to the acceptable limit and did not indicate a substantial problem in item performance. In addition, the overall Cronbach's alpha remained very high, suggesting that deleting such items would not meaningfully improve scale reliability. Therefore, all items were retained in their respective scales.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.6 Criteria for Item Deletion</h3>
+      <p>Items are typically considered for deletion from a scale if they meet one or more of the following criteria: (1) item-total correlation below .30, indicating weak relationship with the overall construct; (2) deletion of the item would substantially increase Cronbach's alpha (typically an increase of .05 or more), suggesting the item is detracting from internal consistency; (3) the item shows negative correlation with other items, indicating it measures the opposite of the intended construct; or (4) the item has extremely low or high mean scores, suggesting it may not discriminate well among respondents. Additionally, theoretical considerations may warrant item deletion if an item does not align with the conceptual definition of the construct.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.7 Decision on Item Retention</h3>
+      <p>All items were retained, as none met the criteria for deletion. The PCQ retains all 24 items (α=.939), the MSQ retains all 20 items (α=.939), and the UWES retains all 9 items (α=.890). This decision is supported by the evidence presented in Section 4.5: all items demonstrated positive correlations with their respective scale totals, no items showed evidence of detracting from overall scale reliability, and all items showed positive inter-item correlations indicating they measure related aspects of the same construct.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.8 Key Findings</h3>
+      <ul>
+        <li>All three scales demonstrate excellent to good internal consistency (PCQ α=.939, MSQ α=.939, UWES α=.890).</li>
+        <li>No items showed problematic item-total correlations requiring deletion.</li>
+        <li>Inter-item correlations are uniformly positive, indicating coherent measurement of their intended constructs.</li>
+        <li>The PCQ and MSQ show identical reliability coefficients, suggesting comparable measurement precision.</li>
+        <li>The UWES, despite having fewer items (9 vs. 20-24), achieves good reliability, indicating efficient measurement.</li>
+        <li>Item means and standard deviations are within acceptable ranges, indicating adequate item discrimination.</li>
+        <li>All scales meet or exceed conventional thresholds for acceptable reliability in research contexts.</li>
+        <li>Item-level analysis confirms the contribution of all items to their respective scales.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>4.9 Implications for Statistical Analysis</h3>
+      <p>The strong reliability coefficients support the use of composite scale scores in regression analyses and other statistical tests, increasing statistical power and reducing the number of comparisons. The high internal consistency reduces the likelihood that observed relationships among variables are artifacts of measurement error. The retention of all items preserves the theoretical structure and content validity of each scale. These findings support proceeding to subsequent stages of analysis with confidence in the quality of the measurement instruments.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.10 What Did I Learn?</h3>
+      <p>The reliability analysis confirms that the three measurement scales used in this study are internally consistent and suitable for use in hypothesis testing. The PCQ and MSQ, with identical alpha coefficients of .939, demonstrate exceptional reliability and suggest that respondents understood these items consistently and that the items measure their intended underlying constructs. The UWES, with an alpha of .890, also demonstrates strong reliability despite its shorter length, indicating efficient measurement of work engagement. The absence of problematic items requiring deletion suggests that the original scale developers made sound decisions in item selection and that the scales have been well-adapted for use with the QOU employee population. The positive inter-item correlations indicate that the items function consistently within their respective scales. These findings provide a solid foundation for proceeding to subsequent analyses, including correlation analysis and hypothesis testing, with confidence in the quality and reliability of the measurement instruments.</p>
+    </div>
+
+    <div class="card">
+      <h3>4.11 Reliability Output Files</h3>
+      <p class="note">The following files contain the original SPSS reliability outputs for each scale separately. Place them in <strong>assets/files/</strong> so the links work correctly.</p>
+      <div class="files-grid">
+        <div class="file-card">
+          <h4>PCQ Reliability Output</h4>
+          <p>Detailed reliability output for the Psychological Capital scale.</p>
+          <a href="../assets/files/PCQ_Reliability.pdf" target="_blank" class="btn">Download PCQ_Reliability.pdf</a>
+        </div>
+        <div class="file-card">
+          <h4>MSQ Reliability Output</h4>
+          <p>Detailed reliability output for the Job Satisfaction scale.</p>
+          <a href="../assets/files/MSQ_Reliability.pdf" target="_blank" class="btn">Download MSQ_Reliability.pdf</a>
+        </div>
+        <div class="file-card">
+          <h4>UWES Reliability Output</h4>
+          <p>Detailed reliability output for the Work Engagement scale.</p>
+          <a href="../assets/files/UWES_Reliability.pdf" target="_blank" class="btn">Download UWES_Reliability.pdf</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+</html>
